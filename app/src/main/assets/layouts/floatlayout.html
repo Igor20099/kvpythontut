@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Float Layout</title>
+</head>
+<body>
+    <div class="container">
+            
+            <div class="row">
+                    <div class="col-md-12">
+                            <h2 class="text-center h2">Float Layout</h2>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="text-center mb-1">Модуль: <b>kivy.uix.floatlayout</b></div>
+                        </div>
+                    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img  class="w-100"src="file:///android_asset/img/floatlayout.gif" alt="">
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div><b>Float Layout</b> - это макет в котором вы сами задаете позицию виджета. Вы также можете расположить виджеты поверх других виджетов.</div>
+                </div>
+            </div>
+            <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Атрибуты</h3>
+                    </div>
+                </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>size</b> - принимает значение ширины и длины макета в виде кортежа.</div>
+                    </div>
+            </div>
+            <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Методы</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>add_widget(widget)</b> - добавляет виджет в макет.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>remove_widget(widget)</b> - удаляет виджет с макета.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+                <div class="row">
+                        <div class="col-md-12">
+                                <h3 class="text-center h3">Пример</h3>
+                        </div>
+                    </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="mb-1">Создадим макет <b>Float Layout</b> и зададим размер по ширине и высоте в 300 пикселей ,в котором расположим две кнопки. Одной кнопке установим фиксированую позицию <b>pos</b> по x и по y значение 50 , а другую кнопку установим по центру с помощью <b>pos_hint</b>:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="code">
+                                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                        <div><span class="keywords">from</span> kivy.uix.floatlayout <span class="keywords">import</span> FloatLayout</div>
+                                        <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div>
+                                        
+                                        <div><span class="classanddef">class</span> <span class="nameclass">FloatLayoutApp</span>(<span class="nameclass">App</span> ):</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fl = FloatLayout(<span class="attr">size</span> = (<span class="namemethod">300</span> , <span class="namemethod">300</span> ))</div>
+                                        <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Установим первой и второй кнопке размер size_hint в 20%(0.2) от размера макета по ширине и высоте</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button(<span class="attr">text</span> = <span class="val">'Кнопка'</span> ,<span class="attr">size_hint</span> = (<span class="namemethod">0.2</span> ,<span class="namemethod">0.2</span>), <span class="attr">pos</span> = ( <span class="namemethod">50</span> ,<span class="namemethod">50</span>))</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn2 = Button(<span class="attr">text</span> = <span class="val">'Кнопка2'</span> ,<span class="attr">size_hint</span> = (<span class="namemethod">0.2</span> ,<span class="namemethod">0.2</span>), <span class="attr">pos_hint</span> = { <span class="val">'center_x'</span>: <span class="namemethod">0.5</span> , <span class="attr">'center_y'</span> :<span class="namemethod">0.5</span>})</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fl.add_widget(btn)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fl.add_widget(btn2)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> fl</div>
+
+                                        <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;FloatLayoutApp().run() </div>     
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="mb-1">Результат:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <img src="file:///android_asset/img/layouts/floatlayout.jpg" alt="" class="w-100 mb-1">
+                        </div>
+                </div>
+            
+        
+    </div>
+</body>
+</html>

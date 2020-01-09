@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>First App</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="h2 text-center">Первое приложение</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text">Напишем первое приложения, где по нажатию кнопки будем записывать текст из виджета <b>text input</b> в виджет <b>label</b>:</div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="code overflow-auto  text-nowrap mb-1">
+                            <div class="comment">#Импортируем класс App из модуля kivy.app</div>
+                            <div class=""><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                            <div class="comment">#Импортируем класс BoxLayout из модуля kivy.uix.boxlayout</div>
+                            <div class="comment">#Все layouts(макеты) находятся в пакете kivy.uix</div>
+                            <div><span class="keywords">from</span> kivy.uix.boxlayout <span class="keywords">import</span> BoxLayout</div>
+                            <div class="comment">#Импортируем класс TextInput из модуля kivy.uix.textinput для ввода текста</div>
+                            <div> <span class="keywords">from</span> kivy.uix.textinput <span class="keywords">import</span> TextInput</div>
+                            <div class="comment">#Импортируем класс Label из модуля kivy.uix.label для отображения текста</div>
+                            <div class=""><span class="keywords">from</span> kivy.uix.label <span class="keywords">import</span> Label</div>
+                            <div class="comment">#Импортируем класс Button из модуля kivy.uix.button.Обычная кнопка</div>
+                            <div class=""><span class="keywords">from</span>kivy.uix.button <span class="keywords">import</span> Button</div>
+                            <div class="comment">#Все виджеты также находятся в пакете kivy.uix</div><br>
+                            
+                            <div class="comment">#Создаем класс.Обязательно что бы названия класса заканчивалось на App</div>
+                            <div class="comment">#В нашем случае приложение называется First и если вы запустите приложение то в левом верхнем углу увидите название приложения</div>
+                            <div class=""><span class="classanddef">class</span> <span class="nameclass">FirstApp</span>(<span class="nameclass">App</span>):</div>
+                                <div class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                                    <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Создаем макет BoxLayout и в качестве атрибута orientation установим vertical</div>
+                                    <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Все виджеты будут распологаться по порядку по вертикали</div>
+                                    <div class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl = BoxLayout(<span class="attr">orientation </span>= <span class="val">'vertical'</span>)</div>
+                                    <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Создаем виджеты </div>
+                                    <div class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.text_input = TextInput()</div>
+                                    <div class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.label = Label()</div>
+                                    <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Для кнопки зададим текст 'Ok' и атрибуту on_press наш созданный далее метод</div>
+                                    <div class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.button = Button(<span class="attr">text</span> = <span class="val">'Ok'</span>, <span class="attr">on_press</span> = <span class="classanddef">self</span>.click)</div>
+                                    <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Добавляем в наш созданный макет c помощью метода add_widget сначало текст ввода,потом лейбл и кнопку</div>
+                                    <div class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(<span class="classanddef">self</span>.text_input)</div>
+                                    <div class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(<span class="classanddef">self</span>.label)</div>
+                                    <div class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(<span class="classanddef">self</span>.button)</div>
+                                    <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Отображаем наш макет с виджетами</div>
+                                    <div class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> bl</div>
+                                    <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;#В данном методе присваеваем текст из виджета ввода текста в виджет лейбл</div>
+                                    <div class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">click</span>(<span class="attr">click</span>, <span class="attr">event</span> ):</div>
+                                    <div class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.label.text = <span class="classanddef">self</span>.text_input.text</div><br>
+                                    
+                            <div class="comment">#Создаем экземляр класса FirstApp и запускаем метод run.</div>
+                            <div class=""><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">"__main__"</span>:</div>
+                            <div class="">&nbsp;&nbsp;&nbsp;&nbsp;FirstApp().run()</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="text">Сначало импортируем класс <b>App</b> из модуля <b>kivy.app</b>. Далее виджеты и макет <b>Box Layout</b> из пакета <b>kivy.uix</b> и соответствущих модулей.Создаем класс <b>FirstApp</b> (обязательно название с класса должно заканчиваться на <b>App</b>) и наследуемся от класса <b>App</b>. Cоздаем метод <b>build</b> который должен возвращать виджет или макет для отображения. Без этого метода мы не сможем запустить наше приложения. В этом методе так же создаем наш <b>Box Layout</b>, <b>Text Input</b>, <b>Label</b>,<b>Button</b>. Добавляем в макет <b>Box Layout</b> все созданные виджет и помощью ключевого слова <b>return</b> возвращаем <b>Box Layout</b></div>
+                        <div class="text">Так же создаем метод <b>click</b> в котором при нажатии на кнопку, текст введенный в <b>Text Input</b>, будет отображаться в <b>Label</b>. И кнопке атрибуту <b>on_press</b> присваиваем название нашего метода <b>click</b>.Далее создаем экземпляр класса и вызываем метод <b>run</b> (<b>FirstApp().run()</b>)</div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <div class="text">Результат:</div>
+                </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" src="file:///android_asset/img/firstappexample.gif" alt="">
+                </div>
+        </div>
+    </div>
+</body>
+</html>

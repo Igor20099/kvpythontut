@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Stack Layout</title>
+</head>
+<body>
+    <div class="container">
+            
+            <div class="row">
+                    <div class="col-md-12">
+                            <h2 class="text-center h2">Stack Layout</h2>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="text-center mb-1">Модуль: <b>kivy.uix.stacklayout</b></div>
+                        </div>
+                    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img  class="w-100"src="file:///android_asset/img/layouts/stacklayout.gif" alt="">
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div><b>Stack Layout</b> - это макет,который упорядочивает виджеты горизонтально и вертикально. Если виджеты не вмещаются в строку, то переносятся на следующую.Виджеты можно расположить слево-направо и сверху вниз или справа-налево и снизу-вверх и т.д.</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+           </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Атрибуты</h3>
+                    </div>
+                </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>orientation</b> - ориентация макета по умолчанию lr-tb(слево-направо, сверху-вниз). Так же допустимые значения «tb-lr»(сверху-вниз, слево-направо), «rl-tb»(справа-налево, сверху-вниз), «tb-rl»(сверху-вниз, справа-налево), «lr-bt»(слево-направо, снизу-вверх), «bt-lr»(снизу-вверх, слево-направо), «rl-bt»(справо-налево, снизу-вверх) и «bt-rl»(снизу-вверх, справо-налево).</div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>padding</b> - внутренние отступы. Принимает список значений в пискелях "[padding_left, padding_top, padding_right, padding_bottom]". Так же можно назначить отступ по горизонтали и вертикали "[padding_horizontal, padding_vertical]" или одинаковое значение отступов со всех сторон "[padding]".</div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>spacing</b> - расстояние между виджетами. Принимает список значений в пискелях по горизонтали и вертикали "[spacing_horizontal, spacing_vertical]".Так же можно задачть только одно значение "[spacing]", которое будет применяться по горизонтали и вертикали.</div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                        <div><b>minimum_width</b> - минимальная ширина, необходимая для размещения всех виджетов.Автоматически устанавливается макетом. По умолчанию 0.</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                        <div><b>minimum_height</b> - минимальная высота, необходимая для размещения всех виджетов.Автоматически устанавливается макетом. По умолчанию 0.</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                        <div><b>minimum_size</b> - минимальный размер, необходимый для размещения всех виджетов.Автоматически устанавливается макетом. Принимает кортеж "(minimum_width,minimum_height)".</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+           </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Методы</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>add_widget(widget)</b> - добавляет виджет в макет.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>remove_widget(widget)</b> - удаляет виджет с макета.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+                <div class="row">
+                        <div class="col-md-12">
+                                <h3 class="text-center h3">Пример</h3>
+                        </div>
+                    </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Дял примера создадим и добавим с помощью цикла 27 кнопок и расположим их в <b>Stack Layout</b> в ориентации "rl-tb" (right left(справа-налево) - top bottom(сверху-вниз)):</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="code">
+                                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                        <div><span class="keywords">from</span> kivy.uix.stacklayout <span class="keywords">import</span> StackLayout</div>
+                                        <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div><br>
+
+                                        <div><span class="classanddef">class</span> <span class="nameclass">StackLayoutApp</span>( <span class="nameclass">App</span> ):</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                                        <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Устанавливаем атрибуту orientation значение "rl-tb"</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sl = StackLayout(<span class="attr">orientation</span> = <span class="val">'rl-tb'</span> )</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">for</span> i <span class="classanddef">in</span> <span class="namemethod">range</span>(<span class="namemethod">28</span>):</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button(<span class="attr">text</span> = <span class="val">"Кнопка"</span> + <span class="nameclass">str</span>(i), <span class="attr">width</span> = <span class="namemethod">40</span> + i * <span class="namemethod">5</span> , <span class="attr">size_hint</span> = (<span class="classanddef">None</span>, <span class="namemethod">0.15</span>))</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sl.add_widget(btn)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> sl</div><br>
+
+                                        <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;StackLayoutApp().run() </div>     
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Результат:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <img src="file:///android_asset/img/stacklayoutexample.jpg" alt="" class="w-100 mb-1">
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Как мы видим на изображение кнопки располагаются справа-налево и сверху-вниз.</div>
+                                <div class="mb-1">Давайте попробуем поменять ориентацию так, чтобы кнопки располагались снизу-вверх. Для этого атрибуту <b>orientation</b> установим значение "rl-bt":</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <img src="file:///android_asset/img/stacklayoutexample2.jpg" alt="" class="w-100 mb-1">
+                        </div>
+                </div>
+            
+        
+    </div>
+</body>
+</html>

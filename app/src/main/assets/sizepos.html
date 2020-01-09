@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Размер и позиционирование</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Размеры и позиционирование</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div> 
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">Размеры</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-1">Для задания размера элемента есть два атрибута <b>size</b> и <b>size_hint</b>. По умолчанию используется <b>size_hint</b>, который принимает значения ширины и длины от 0(0% макета) до 1(100% макета). Если значение установлено в 1, то элемент растягивается на весь макет.Если 0 (так же можно установить значения "None"), то элемент не привязывается к размеру макета и тем самым можно установить фиксированное значение элемента с помошью атрибута <b>size</b> в пикселях. Например: </div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="code overflow-auto  text-nowrap mb-1">
+                                <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                <div><span class="keywords">from</span> kivy.uix.boxlayout <span class="keywords">import</span> BoxLayout</div>
+                                <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div><br>
+                                
+                                <div><span class="classanddef">class</span> <span class="nameclass">TestApp</span>( <span class="nameclass">App</span> ):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>( <span class="attr">self</span> ):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl = BoxLayout()</div>
+                                <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Присваим size_hint значение None или 0.Сам size_hint принимает кортеж (ширину и длину)</div>
+                                <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#от 0 до 1.Например если нам нужно чтобы элемент занимал 10% макета,то нужно поставить значение 0.1</div>
+                                <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Далее в атрибут size который тоже принимает кортеж устанавливаем в пикселях ширину и длину</div>
+                                <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Обязательно чтобы установить фиксированный размер элементу, нужно size_hint присвоить None или 0</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button( <span class="attr">text</span> = <span class="val">'ok'</span>, <span class="attr">size_hint</span> = ( <span class="classanddef">None</span> , <span class="classanddef">None</span>), <span class="attr">size</span> = ( <span class="namemethod">150</span>,<span class="namemethod">150</span>))</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(btn)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> bl</div><br>
+                                
+                                <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;TestApp().run()</div>  
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-1">Запускаем приложение и видим что кнопка в нижнем левом углу. Размер кнопки составляет заданным нами 150 пикселей по ширине и высоте: </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-12">
+                                <img src="file:///android_asset/img/sizehintnone.jpg" alt="" class="w-100 h-100 mb-1">
+                            </div>
+                   </div>
+                   <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-1">Давайте назначим кнопке 30% размера от макета и посмотрим что получится:</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-12">
+                                <div class="code overflow-auto  text-nowrap mb-1">
+                                    <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                    <div><span class="keywords">from</span> kivy.uix.boxlayout <span class="keywords">import</span> BoxLayout</div>
+                                    <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div><br>
+                                    
+                                    <div><span class="classanddef">class</span> <span class="nameclass">TestApp</span>( <span class="nameclass">App</span> ):</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>( <span class="attr">self</span> ):</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl = BoxLayout()</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button( <span class="attr">text</span> = <span class="val">'ok'</span>, <span class="attr">size_hint</span> = ( <span class="namemethod">0.3</span> , <span class="namemethod">0.3</span>))</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(btn)</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> bl</div><br>
+                                    
+                                    <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;TestApp().run()</div>   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <img src="file:///android_asset/img/sizehint30.jpg" alt="" class="w-100 mb-1">
+                                </div>
+                       </div>
+                       <div class="row">
+                            <div class="col-md-12">
+                                <div class="mb-1">Как мы видим кнопка заняла по ширине 100%(хотя указали 30%), а по длине 30%.Все потому что мы используем макет <b>Box Layout</b>, который распологает элементы по горизонтали или вертикали. По умолчанию <b>Box Layout</b> распологает элементы по горизонтали и так как в нем одна только кнопка, то он растягивает её на всё ширину. Попробуем добавить еще одну кнопку и зададим ей <b>size_hint</b> значение "0.7" по ширине и длине.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <img src="file:///android_asset/img/sizehint30and70.jpg" alt="" class="w-100 mb-1">
+                                </div>
+                       </div>
+                       <div class="row">
+                            <div class="col-md-12">
+                                <div class="mb-1">Первая кнопка заняла 30% размера макета по ширине, а вторая кнопка 70%</div>
+                        </div>
+                             
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                            <div class="mb-1">Про макеты более подробно будет сказано в разделе <b>Layouts</b>(Макеты). Главное помнить, что <b>size</b> принимает фиксированное значение ширины и длины в пикселях и только в том случае если значение <b>size_hint</b> установлено в "None" или "0", а <b>size_hint</b> принимает значение от 0 (0% размера макета) до 1 (100% размера макета).</div>
+                                </div>
+                                     
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="divider"></div>
+                                        </div>
+                                   </div> 
+                                    <div class="row">
+                                            <div class="col-md-12">
+                                                <h3 class="text-center h3">Позиционирование</h3>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="col-md-12">
+                                                       <div class="mb-1">Для позиционирования элемента применяются атрибуты <b>pos_hint</b> и <b>pos</b>. Атрибут <b>pos</b> принимает кортеж как и <b>size</b>, а вот с <b>pos_hint</b> все немного посложнее. Во-первых атрибуты <b>pos</b> и <b>pos_hint</b> работает не на всех макетах. Во-вторых <b>pos_hint</b> принимает в качестве значения словарь, где ключ это позицонирование по вертикали или горизонтали, а значение так же как и в <b>size_hint</b> от 0(0%) до 1(100%). Рассмотрим <b>pos_hint</b> подробно.</div>
+                                            </div>
+                                                 
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-1">Начальные коориданаты окна это левый нижний угол.</div>
+                                                </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                       <img class="mx-auto d-block mb-1" src="file:///android_asset/img//pos/startcooirdinat.png" alt="">
+                                                </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        Аттрибут <b>pos_hint</b> принимает словарь координат по <b>x</b> и <b>y</b>.
+                                                </div>
+                                                </div>    
+                                                    
+                                                    <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div><b>x</b> - распологает элемент по x. Значение от 0 (0% размера макета) до 1 (100% размера макета).</div>
+                                                                <div><b>center_x</b> - выравнивание по центру. Значение от 0 до 1. Если значение равно 0.5 то элемент будет выравнен по центру окна по х.</div>
+                                                                <div><b>right</b> - распологает элемент справа окна если значение равно 1. Значение от 0 до 1.</div>
+                                                            </div>
+                                                             
+                                                    </div>
+                                                 
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div><b>y</b> - распологает элемент по y. Значение от 0 (0% размера макета) до 1 (100% размера макета).</div>
+                                                        <div><b>center_y</b> - выравнивание по центру.Значение от 0 до 1. Если значение равно 0.5 то элемент будет выравнен по центру окна по y.</div>
+                                                        <div><b>top</b> - распологает элемент вверху окна если значение равно 1. Значение от 0 до 1.</div>
+                                                    </div>    
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                        <div class="mb-1">Рассмотрим пример. Расположим кнопку в правом нижнем углу:</div>
+                                                </div>    
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                        <div class="code">
+                                                            <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                                            <div><span class="keywords">from</span> kivy.uix.floatlayout <span class="keywords">import</span> FloatLayout</div>
+                                                            <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div><br>
+
+                                                            <div><span class="classanddef">class</span> <span class="nameclass">PosApp</span>( <span class="nameclass">App</span> ):</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">def</span>( <span class="attr">self</span> ):</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fl = FloatLayout()</div>
+                                                            <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Устанавилваем кнопке фиксированную ширину и длину в 100 пикселей</div>
+                                                            <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Так как изначально кнопка находится по начальным координатам в левом нижнем углу</div>
+                                                            <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#то меняем только значение по x. Ключу right устанавливаем значение 1</div>
+                                                           <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button(<span class="attr">text</span> = <span class="val">"Кнопка"</span>,<span class="attr">size_hint</span> = (<span class="classanddef">None</span>, <span class="classanddef">None</span>),<span class="attr">size</span> = (<span class="namemethod">100</span>, <span class="namemethod">100</span>), <span class="attr">pos_hint</span> = {<span class="val">'right'</span>: <span class="namemethod">1</span> })</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fl.add_widget(btn)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywrods">return</span> fl</div><br>
+
+                                                            <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;PosApp().run()</div>
+                                                        </div>
+                                                </div>    
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                        <img class="w-100"src="file:///android_asset/img/pos/example1.png" alt="">
+                                                </div>    
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                        <div class="mb-1">Теперь попробуем расположить его по центру с помощью "center_x " и "center_y":</div>
+                                                </div>    
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                        <div class="code">
+                                                            btn = Button(<span class="attr">text</span> = <span class="val">"Кнопка"</span>, <span class="attr">size_hint</span> = (<span class="classanddef">None</span>, <span class="classanddef">None</span>), <span class="attr">size</span> = (<span class="namemethod">100</span>, <span class="namemethod">100</span> ), <span class="attr">pos_hint</span> = {<span class="val">'center_x'</span>: <span class="namemethod">0.5</span> , <span class="val">'center_y'</span>:<span class="namemethod">0.5</span> })
+                                                        </div>
+                                                </div>    
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                        <img class="w-100"src="file:///android_asset/img/pos/example2.png" alt="">
+                                                </div>    
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                        <div class="mb-1">В качестве домашнего задания попробуйте расположить кнопку по всем углам окна.</div>
+                                                </div>    
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="divider"></div>
+                                                </div>
+                                           </div> 
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h3 class="text-center">Отступы.<br>Расстояние между элементами</h3>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                        <b>padding</b> - внутренние отступы. Принимает в качетсве значения список из четрырех параметров(отступ сверху,слева,сниху,справа). Например <b>padding</b> = [10,20,10,20]. <br>
+                                                        <b>spacing</b> - расстояние между элементами. Принимает в качестве значения список из двух параметров. Это расстояние по горизонтали и вертикали. Например <b>spacing</b> = [10,20].
+                                                </div>    
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="mb-1"> Создадим макет <b>Grid Layout</b>(распологает элементы в виде сетки) , где расположим девять кнопок:
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                        <div class="code mb-1">
+                                                            <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                                            <div><span class="keywords">from</span> kivy.uix.gridlayout <span class="keywords">import</span> GridLayout</div>
+                                                            <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div><br>
+
+                                                            <div><span class="classanddef">class</span> <span class="nameclass">ExampleApp</span>( <span class="nameclass">App</span> ):</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>( <span class="attr">self</span> ):</div>
+                                                            <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Устанавливаем отсутпы по 10 пикселей с каждой стороны</div>
+                                                            <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# расстояние между элементами по горизонтали 20 пискелей, а по вертикали 30</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gl = GridLayout(<span class="attr">cols</span> = <span class="namemethod">3</span>, <span class="attr">padding</span> = [<span class="namemethod">10</span>,<span class="namemethod">10</span>,<span class="namemethod">10</span>,<span class="namemethod">10</span>], <span class="attr">spacing</span> = [<span class="namemethod">20</span>,<span class="namemethod">30</span>])</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button(<span class="attr">text</span> = <span class="val">"Кнопка"</span> )</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn2 = Button(<span class="attr">text</span> = <span class="val">"Кнопка"</span>)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn3 = Button(<span class="attr">text</span> = <span class="val">"Кнопка"</span>)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn4 = Button(<span class="attr">text</span> = <span class="val">"Кнопка"</span>)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn5 = Button(<span class="attr">text</span> = <span class="val">"Кнопка"</span>)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn6 = Button(<span class="attr">text</span> = <span class="val">"Кнопка"</span>)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn7 = Button(<span class="attr">text</span> = <span class="val">"Кнопка"</span>)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn8 = Button(<span class="attr">text</span> = <span class="val">"Кнопка"</span>)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn9 = Button(<span class="attr">text</span> = <span class="val">"Кнопка"</span>)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gl.add_widget(btn)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gl.add_widget(btn2)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gl.add_widget(btn3)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gl.add_widget(btn4)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gl.add_widget(btn5)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gl.add_widget(btn6)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gl.add_widget(btn7)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gl.add_widget(btn8)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gl.add_widget(btn9)</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> gl</div>
+
+                                                            <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;ExampleApp().run()</div>   
+                                                        </div>
+                                                </div>    
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                        <img class ="w-100 mb-1"src="file:///android_asset/img/pos/padingsapcing.png" alt="">
+                                                </div>    
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                        Как мы видим по картинке элементы внутри макета <b>Grid Layout</b> сдвинулись на 10 пикселей со всех сторон и появилось расстояние между элементами по горизонтали на 20 пикселей, а по вертикали на 30 пикселей.
+                                                </div>    
+                                            </div>
+                                          
+                            
+        </div>
+</body>
+</html>
+

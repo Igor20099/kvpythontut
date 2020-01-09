@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>TextInput</title>
+</head>
+<body>
+    <div class="container">
+        <!--Название виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Text Input</h2>
+            </div>
+        </div>
+        <!--Модуль где находиться класс виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center mb-1">Модуль: <b>kivy.uix.textinput</b></div>
+                </div>
+        </div>
+        <!--Изображения виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" src="file:///android_asset/img/widgets/textinput.gif" alt="">
+                </div>
+        </div>
+        <!--Описание виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>Text Input</b> - виджет для ввода текста</div>
+                </div>
+        </div>
+        <!--Атрибуты виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Атрибуты</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>multiline</b> - если значение "True", то разрешаеться многострочный ввод. Если "False", то однострочный.</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>allow_copy</b> - если значение "True", то разрешаеться копирование текста.Если "False", то нет. По умолчанию "True".</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>auto_indent</b> - если значение "True", то включаеться автоматический отступ многострочного текста. Если "False", то нет. По умолчанию "True".</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>cursor</b> - кортеж из "(строка,столбец)" указывающих текущую позицию курсора.</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>cursor_blink</b> - если значение "True", то курсор будет моргать. Если "False", то нет.</div>
+                </div>
+        </div>
+        <!--Методы виджета-->
+        <!-- <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Методы</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""></div>
+                </div>
+        </div> -->
+        <!--Пример виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+                <div class="col-md-12">
+                        <h3 class="h3 text-center">Пример</h3>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-1">Создадим приложение с <b>Text Input</b>. Установим многострочный ввод текста и размер шрифта "50sp":</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="code">
+                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                            <div><span class="keywords">from</span>  kivy.uix.textinput  <span class="keywords">import</span>  TextInput</div><br>
+                            
+                            <div><span class="classanddef">class</span> <span class="nameclass">TextInputApp</span>( <span class="nameclass">App</span> ):</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text_input = TextInput(<span class="attr">multiline</span> = <span class="classanddef">True</span>, <span class="attr">font_size</span> = <span class="val">"50sp"</span>)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> text_input</div><br>
+                            
+                                <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;TextInputApp().run()</div>
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Результат</div>
+                </div>
+        </div>
+        <!--Изображения примера виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" src="file:///android_asset/img/widgets/textinputexample.gif" alt="">
+                </div>
+        </div>
+            
+    </div>
+</body>
+</html>

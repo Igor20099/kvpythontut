@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+</head>
+<body>
+    <div class="container">
+            <h1 class="h1 text-center">Установка Kivy</h1>
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="divider"></div>
+                    </div>
+               </div> 
+        <div class="row">
+            <div class="col-md-12"><h2>Установка на Windows</h2></div>
+       </div>
+       <div class="row">
+            <div class="col-md-12"><div class="mb-1">Сначало нужно обновить <b>pip</b>, <b>wheel</b> и <b>virtualenv</b>:</div></div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-secondary text-white text-nowrap overflow-auto p-1 mb-1">python -m pip install --upgrade pip wheel setuptools virtualenv&nbsp;</div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class=""><div class="mb-1">Устанавливаем зависимости:</div></div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-secondary text-white text-nowrap overflow-auto p-1 mb-1">python -m pip install docutils pygments pipiwin32 kivy_deps.sdl2==0.1.22 kivy_deps.glew==0.1.12<br>
+                    python -m pip install kivy_deps.gstreamer==0.1.17
+                    </div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="mb-1">Установка <b>Kivy:</b></div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-secondary text-white text-nowrap overflow-auto p-1 mb-1">python -m pip install kivy==1.11.1</div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="mb-1">Также можно установить примеры Kivy:</div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-secondary text-white text-nowrap overflow-auto p-1 mb-1">python -m pip install kivy_examples==1.11.1</div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="mb-1">Примеры устанавливаются в каталог <b>share</b> в корневой каталог, где установлен <b>Python</b><br>
+                Чтобы запустить пример введите:
+                </div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-secondary text-white text-nowrap overflow-auto p-1 mb-1">python {путь к корневой папке python}\share\kivy-examples\demo\showcase\main.py</div>
+            </div>
+       </div>
+      
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-info p-1 text-light mb-2 mt-2"> Более подробно по установки на Windows можно посмотреть на официальном сайте <a class="text-warning" href="https://kivy.org/doc/stable/installation/installation-windows.html">kivy.org</a></div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div> 
+       <div class="row">
+            <div class="col-md-12">
+                <div class=""> <h2>Установка на OS X</h2></div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="mb-1"> Установка <b>Kivy</b></div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-secondary text-white text-nowrap overflow-auto p-1 mb-1">$ python -m pip install kivy</div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="mb-1"> Для воспроизведения мультимедии с <b>Kivy</b> нужно установить <b>ffpyplayer</b></div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-secondary text-white text-nowrap overflow-auto p-1 mb-1">$ python -m pip install ffpyplayer</div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="mb-1"> Обязательно нужно установить переменную <b>KIVY_VIDEO</b> = "ffpyplayer" перед запуском приложения</div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-info p-1 text-light mb-2"> Более подробно по установки на OS X можно посмотреть на официальном сайте <a class="text-warning" href="https://kivy.org/doc/stable/installation/installation-osx.html">kivy.org</a></div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div> 
+       <div class="row">
+            <div class="col-md-12">
+                <div class=""> <h2>Установка на Linux</h2></div>
+            </div>
+       </div> 
+       <div class="row">
+            <div class="col-md-12">
+                <div class="mb-1">Устанавливаем обновления <b>pip</b>:</div>
+            </div>
+       </div> 
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-secondary text-white text-nowrap overflow-auto p-1 mb-1">$ python -m pip install --upgrade --user pip setuptools virtualenv</div>
+            </div>
+       </div> 
+       <div class="row">
+            <div class="col-md-12">
+                <div class="mb-1">Устанавливаем  <b>Kivy</b>:</div>
+            </div>
+       </div> 
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-secondary text-white text-nowrap overflow-auto p-1 mb-1">$ python -m pip install kivy</div>
+            </div>
+       </div> 
+       <div class="row">
+            <div class="col-md-12">
+                <div class="mb-1">Также можно установить примеры Kivy:</div>
+            </div>
+       </div> 
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-secondary text-white text-nowrap overflow-auto p-1 mb-1">$ python -m pip install kivy_examples</div>
+            </div>
+       </div> 
+       <div class="row">
+            <div class="col-md-12">
+                <div class="mb-1"> Для воспроизведения мультимедии с <b>Kivy</b> нужно установить <b>ffpyplayer</b>:</div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-secondary text-white text-nowrap overflow-auto p-1 mb-1">$ python -m pip install ffpyplayer</div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="mb-1"> Обязательно нужно установить переменную KIVY_VIDEO = ffpyplayer перед запуском приложения</div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="bg-info p-1 text-light mb-2 mt-2"> Более подробно по установки на Linux можно посмотреть на официальном сайте <a class="text-warning" href="https://kivy.org/doc/stable/installation/installation-linux.html">kivy.org</a></div>
+            </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div> 
+       <div class="row">
+            <div class="col-md-12">
+                <div class="mb-1">В данном справочнике все примеры написаны на <b>Windows</b></div>
+            </div>
+       </div> 
+    </div>
+    
+</body>
+</html>

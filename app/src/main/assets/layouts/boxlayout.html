@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Box Layout</title>
+</head>
+<body>
+    <div class="container">
+            
+            <div class="row">
+                    <div class="col-md-12">
+                            <h2 class="text-center h2 ">Box Layout</h2>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="text-center mb-1">Модуль: <b>kivy.uix.boxlayout</b></div>
+                        </div>
+                    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img  class="w-100"src="file:///android_asset/img/boxlayout.gif" alt="">
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div><b>Box Layout</b> - это макет в которым виджеты располагаются последовательно, в «вертикальной» или «горизонтальной» ориентации.</div>
+                </div>
+            </div>
+            <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Атрибуты</h3>
+                    </div>
+                </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>orientation</b> - принимает значение "horizontal"(виждеты будут расположены по горизонтали) или "vertical"(виджеты будут расположены по вертикали).</div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>spacing</b> - расстояние между виджетами внутри макета в пикселях. По умолчанию 0.</div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>padding</b> - внутренние отступы. Принимает список значений в пискелях "[padding_left, padding_top, padding_right, padding_bottom]".Так же можно назначить отступ по горизонтали и вертикали "[padding_horizontal, padding_vertical]" или одинаковое значение отступов со всех сторон "[padding]".</div>
+                    </div>
+            </div>
+            <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Методы</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>add_widget(widget)</b> - добавляет виджет в макет.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>remove_widget(widget)</b> - удаляет виджет с макета.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+                <div class="row">
+                        <div class="col-md-12">
+                                <h3 class="text-center h3">Пример</h3>
+                        </div>
+                    </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Создадим макет <b>Box Layout</b>, в котором расположим две кнопки последовательно по вертикали и зададим расстояние между ними в 10 пикселей, а также отступы co всех сторон от макета в 20 пикселей:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="code">
+                                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                        <div><span class="keywords">from</span> kivy.uix.boxlayout <span class="keywords">import</span> BoxLayout</div>
+                                        <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div><br>
+
+                                        <div><span class="classanddef">class</span> <span class="nameclass">BoxLayoutApp</span>(<span class="nameclass">App</span>):</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>( <span class="attr">self</span> ):</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl = BoxLayout(<span class="attr">orientation</span> = <span class="val">'vertical'</span>, <span class="attr">padding</span> = [<span class="namemethod">20</span> ], <span class="attr">spacing</span> = <span class="namemethod">10</span> )</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button(<span class="attr">text</span>=<span class="val">'Кнопка'</span> )</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn2 = Button(<span class="attr">text</span>=<span class="val">'Кнопка'</span>)</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(btn)</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(btn2)</div> 
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> bl</div><br>
+
+                                        <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;BoxLayoutApp().run() </div>     
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="mb-1">Результат:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <img src="file:///android_asset/img/layouts/boxlayout.jpg" alt="" class="w-100 mb-1">
+                        </div>
+                </div>
+            
+        
+    </div>
+</body>
+</html>

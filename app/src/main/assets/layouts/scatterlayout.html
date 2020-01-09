@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Scatter Layout</title>
+</head>
+<body>
+    <div class="container">
+            
+            <div class="row">
+                    <div class="col-md-12">
+                            <h2 class="text-center h2 ">Scatter Layout</h2>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="text-center mb-1">Модуль: <b>kivy.uix.scatterlayout</b></div>
+                        </div>
+                    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img  class="w-100"src="file:///android_asset/img/scatterlayout.jpg" alt="">
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div><b>Scatter Layout</b> - этот макет похож на <b>Relative Layout</b>. Отличается этот макет тем, что его можно перемещать вместе с виджетами, масштабировать и вращать. Чтобы перетащить данный макет нужно зажать на свободной области левой кнопкой мышки и перетаскивать. Чтобы вращать нужно на правую кнопку мышки поставить красную точку и на макете на пустой области зажать левой кнопкой мышки и вращать мышкой. Для маштабирования так же надо поставить красную точку зажать левой кнопкой мыши на пустой области макета и двигать мышкой вверх или вниз. Для того чтобы убрать красную точку надо нажать на неё два раза. Так же такое же поведение макета можно сделать и в <b>Float Layout</b> для этого нужно экспортировать виджет <b>scatter</b> из пакета <b>kivy.uix.scatter</b> и добавить его во <b>Float Layout</b>, а уже другие виджеты в <b>scatter</b>.</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+           </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Методы</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>add_widget(widget)</b> - добавляет виджет в макет.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>remove_widget(widget)</b> - удаляет виджет с макета.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>clear_widgets()</b> - удаляет все или добавленный в параметры список виджетов.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+                <div class="row">
+                        <div class="col-md-12">
+                                <h3 class="text-center h3">Пример</h3>
+                        </div>
+                    </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Создадим <b>Scatter Layout</b> и добавим в него <b>Label</b>(текст). Далее переместим макет с <b>Label</b> в центр, увеличим маштаб и перевернем макет с <b>Label</b>:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="code">
+                                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                        <div><span class="keywords">from</span> kivy.uix.scatterlayout <span class="keywords">import</span> ScatterLayout</div>
+                                        <div><span class="keywords">from</span> kivy.uix.label <span class="keywords">import</span> Label</div><br>
+
+                                        <div><span class="classanddef">class</span> <span class="nameclass">ScatterLayoutApp</span>(<span class="nameclass">App</span>):</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>( <span class="attr">self</span> ):</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sl = ScatterLayout()</div>
+                                        <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Устнавливаем ширину кнопки в 20%, а высоту в 10% size_hint = (0.2,0.1)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label = Label(<span class="attr">text</span> = <span class="val">'Scatter Layout'</span>,<span class="attr">size_hint</span> = ( <span class="namemethod">0.2</span> ,<span class="namemethod">0.1</span> ))</div>
+                                       <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sl.add_widget(label)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> sl</div><br>
+
+                                        <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;ScatterLayoutApp().run() </div>     
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Перемещаем макет с <b>Label</b>. Зажимаем левой клавишой мыши и перетаскиваем на пустую область макета:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <img src="file:///android_asset/img/scatterlayoutmove.gif" alt="" class="w-100">
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Увеличим маштаб <b>Label</b>. Для этого ставим красную точку на правую кнопку мыши и на пустой области зажимаем левой кнопкой мыши и двигаем мышкой вверх:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <img src="file:///android_asset/img/scatterlayoutscale.gif" alt="" class="w-100">
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Теперь перевернем <b>Label</b>. Для этого так же на пустой области макета зажимаем левой кнопкой мыши и вращаем мышкой:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <img src="file:///android_asset/img/scatterlayoutrotate.gif" alt="" class="w-100">
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="mb-1">Чтобы теперь убрать красную точку нажимаем на неё два раза левой кнопкой мыши.</div>
+                        </div>
+                </div>
+            
+        
+    </div>
+</body>
+</html>

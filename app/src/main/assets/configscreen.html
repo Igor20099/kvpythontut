@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Настройка экрана</title>
+</head>
+<body>
+    <div class="container">
+            <h2 class="text-center">Настройка размера экрана</h2>
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="mb-1">Есть два способа задать размер окна. Первый способ это перед созданием приложения. Импортируем класс <b>Config</b> из модуля <b>kivy.config</b>:</div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                        <div class="code overflow-auto  text-nowrap mb-1">
+                                <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                <div><span class="keywords">from</span> kivy.uix.boxlayout <span class="keywords">import</span> BoxLayout</div>
+                                <div><span class="keywords">from</span> kivy.config <span class="keywords">import</span> Config</div><br>
+                                <div class="comment">#У класса Config вызываем метод set и первым параметром пишем к чему обращаемся в данном случае к graphics</div>
+                                <div class="comment">#Устанавливаем width(ширину) и height(длину) в 100 пикселей </div>
+                                <div>Config.set(<span class="val">'graphics'</span>,<span class="val">'width'</span>,<span class="val">'100'</span>)</div>
+                                <div>Config.set(<span class="val">'graphics'</span>,<span class="val">'height'</span>,<span class="val">'100'</span>)</div><br>
+
+                                <div><span class="classanddef">class</span> <span class="nameclass"> TestApp</span>(<span class="nameclass">App</span>):</div>
+                                   <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span> ):</div>
+                                   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl = BoxLayout()</div>
+                                   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> bl</div>
+
+
+                               <div> <span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                               <div>&nbsp;&nbsp;&nbsp;&nbsp;TestApp().run()</div>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div class="mb-1">Так же можно запретить или разрешить растягивания экрана для этого также обращаемся к "graphics" и к параметру "resizable". И третим параметром пишем "True" (разрешить растягивание) или "False" чтобы запретить растягивание.</div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="code overflow-auto  text-nowrap mb-1">
+                                    <div>Config.set(<span class="val">'graphics'</span>,<span class="val">'resizable'</span>,<span class="classanddef">False</span>)</div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-12">
+                                   <div class="mb-1">Второй способ это динамически изменить размер после создания окна. Для этого импортируем класс <b>Window</b> из модуля <b>kivy.core.window</b>:</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-12">
+                                       <div class="code mb-1">
+                                            <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                            <div><span class="keywords">from</span> kivy.uix.boxlayout <span class="keywords">import</span> BoxLayout</div>
+                                            <div><div><span class="keywords">from</span> kivy.core.window <span class="keywords">import</span> Window</div><br>
+                                            
+                                            <div><span class="classanddef">class</span> <span class="nameclass">TestApp</span>( <span class="nameclass">App</span> ):</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>( <span class="attr">self</span> ):</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl = BoxLayout()</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> bl</div><br>
+                                            
+                                            <div>Window.size = ( <span class="namemethod">200</span> , <span class="namemethod">100</span>)</div><br>
+                                            
+                                            <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;TestApp().run()</div>
+                                       </div>
+                                </div>
+                            </div>
+    </div>
+    </div>
+</body>
+</html>

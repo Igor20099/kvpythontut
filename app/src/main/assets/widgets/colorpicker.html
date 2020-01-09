@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>ColorPicker</title>
+</head>
+<body>
+    <div class="container">
+        <!--Название виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Color Picker</h2>
+            </div>
+        </div>
+        <!--Модуль где находиться класс виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center mb-1">Модуль: <b>kivy.uix.colorpicker</b></div>
+                </div>
+        </div>
+        <!--Изображения виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" src="file:///android_asset/img/widgets/colorpicker.jpg" alt="">
+                </div>
+        </div>
+        <!--Описание виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>Color Picker</b> - позволяет пользователю выбирать цвет из хроматического колеса, где пинч и масштаб могут использоваться для изменения насыщенности колеса. Ползунки и поля ввода также предусмотрены для непросредственного ввода значений в форматах RGBA/HSV/HEX.</div>
+                </div>
+        </div>
+        <!--Атрибуты виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Атрибуты</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>color</b> - устанавливает изначальный свет при запуске приложения в формате <b>RGBA</b> (от 0 до 1). Принимает числовой картеж в виде (красный, зеленый, синий, прозрачность). По умолчанию установлено (1,1,1,1).</div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>font_name</b> - указывает шрифт, используемый в <b>Color Picker</b>. По умолчанию путь к шрифту "data/fonts/RobotMono-Regular.ttf".</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>hex_color</b> - устанавливает цвет в шестнадцатеричном формате. По умолчанию "#ffffff".</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>hsv</b> - устанавливает цвет в hsv(hue(оттенок),saturation(насыщенность),
+                    value(значение)) формате (от 0 до 1). По умолчанию (1,1,1).</div>
+            </div>
+        </div>
+        <!--Пример виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+                <div class="col-md-12">
+                        <h3 class="h3 text-center">Пример</h3>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Создадим <b>Color Picker</b>, где по умолчанию поставим красный цвет в шестнадцатеричном формате и будем менять цвет:</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="code">
+                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                            <div><span class="keywords">from</span> kivy.uix.colorpicker <span class="keywords">import</span> ColorPicker</div><br>
+                            
+                            <div><span class="classanddef">class</span> <span class="nameclass">ColorPickerApp</span>(<span class="nameclass">App</span>):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color_picker = ColorPicker(<span class="attr">hex_color</span> = <span class="val">'#ff0000'</span> )</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> color_picker</div><br>
+                            
+                                <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;ColorPickerApp().run()</div> 
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Результат</div>
+                </div>
+        </div>
+        <!--Изображения примера виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100 mb-1" src="file:///android_asset/img/widgets/colorpickerexample.gif" alt="">
+                </div>
+        </div>
+            
+    </div>
+</body>
+</html>

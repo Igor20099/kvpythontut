@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Relative Layout</title>
+</head>
+<body>
+    <div class="container">
+            
+            <div class="row">
+                    <div class="col-md-12">
+                            <h2 class="text-center h2 ">Relative Layout</h2>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="text-center mb-1">Модуль: <b>kivy.uix.relativelayout</b></div>
+                        </div>
+                    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img  class="w-100 mb-1"src="file:///android_asset/img/relativelayout.jpg" alt="">
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div><b>Relative Layout</b> - это макет, в котором виджеты располагаются относительно начальной позиции макета. По умолчанию начальная позиция с координатами (0,0) левый нижний угол и все виджеты изначально будут расположены в этих координатах. Но если мы зададим для кнопки свою позицию, то кнопка сдвинеться относительно начальной координаты на столько пикселей, сколько задали в атрибуте <b>pos</b>.</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+           </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Атрибуты</h3>
+                    </div>
+                </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>size</b> - принимает значение ширины и высоты макета в виде кортежа.</div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>pos</b> - принимает значение координат по х и y в виде кортежа.</div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+           </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Методы</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>add_widget(widget)</b> - добавляет виджет в макет.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>remove_widget(widget)</b> - удаляет виджет с макета.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>to_local( x , y , ** k )</b> - преобразует родительские координаты в локальные.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>to_parent( x , y , ** k )</b> - преобразует локальные координаты в родительские.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+                <div class="row">
+                        <div class="col-md-12">
+                                <h3 class="text-center h3">Пример</h3>
+                        </div>
+                    </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Чтобы разобраться в <b>Relative Layout</b> напишем пример, где зададим начальную позицию макета по х и y в 200 пикселей. Так же создадим три кнопки. Первая кнопка будет на начальной позиции, вторую сдвинем на 100 пиксей, а третью на 200:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="code">
+                                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                        <div><span class="keywords">from</span> kivy.uix.relativelayout <span class="keywords">import</span>  RelativeLayout</div>
+                                        <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span>  Button</div><br>
+
+                                        <div><span class="classanddef">class</span> <span class="nameclass">RelativeLayoutApp</span>( <span class="nameclass">App</span> ):</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>( <span class="attr">self</span> ):</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rl = RelativeLayout(<span class="attr">pos</span> = (<span class="namemethod">200</span> ,<span class="namemethod">200</span>))</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button (<span class="attr">text</span> = <span class="val">'Кнопка'</span>,<span class="attr">size_hint</span> = (<span class="classanddef">None</span> ,<span class="classanddef">None</span>))</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn2 = Button (<span class="attr">text</span> = <span class="val">'Кнопка2'</span>,<span class="attr">size_hint</span> = (<span class="classanddef">None</span> ,<span class="classanddef">None</span>), <span class="attr">pos</span> = (<span class="namemethod">100</span>, <span class="namemethod">100</span> ))</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn3 = Button (<span class="attr">text</span> = <span class="val">'Кнопка3'</span>,<span class="attr">size_hint</span> = (<span class="classanddef">None</span> ,<span class="classanddef">None</span>), <span class="attr">pos</span> = (<span class="namemethod">200</span>, <span class="namemethod">200</span>))</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rl.add_widget(btn)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rl.add_widget(btn2)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rl.add_widget(btn3)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> rl</div><br>
+
+                                        <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;RelativeLayoutApp().run() </div>     
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Результат:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <img src="file:///android_asset/img/relativelayoutexample.jpg" alt="" class="w-100 mb-1">
+                        </div>
+                </div>
+            
+        
+    </div>
+</body>
+</html>

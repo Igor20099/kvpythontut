@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Carousel</title>
+</head>
+<body>
+    <div class="container">
+        <!--Название виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Carousel</h2>
+            </div>
+        </div>
+        <!--Модуль где находиться класс виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center mb-1">Модуль: <b>kivy.uix.carousel</b></div>
+                </div>
+        </div>
+        <!--Изображения виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" src="file:///android_asset/img/widgets/carousel.gif" alt="">
+                </div>
+        </div>
+        <!--Описание виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>Carousel</b> -  виджет, в котором можно пролистывать вложенные в него элементы.</div>
+                </div>
+        </div>
+        <!--Атрибуты виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Атрибуты</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>direction</b> - определяет направление, переключения слайдов.Принимает одно из значений "right","left","top","bottom".</div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>ignore_perpendicular_swipes</b> - игнорирует движение перпендикулярно по оси.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>index</b> - позволяет получить или установить текущий основной слайд. По умолчанию 0.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>loop</b> - повзоляет прокручивать карусель бесконечно.Если значение "True", когда пользователь попытаеться пролистать за последнюю страницу, он вернется к первой. Если "False", он останется на последней странице.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>slides</b> - список слайдов внутри карусели. Слайды - это виджеты, добавленные в карусели с использованием "add_widget" метода.</div>
+            </div>
+        </div>
+        <!--Методы виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Методы</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <div><b>add_widget(widget)</b> - добавляет виджет в макет.</div>
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-md-12">
+                    <div><b>remove_widget(widget)</b> - удаляет виджет с макета.</div>
+            </div>
+    </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>load_next(mode = "next")</b> - анимировать до следующего слайда.</div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>load_previous</b> - анимировать к предыдущему слайду.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>load_slide(слайд)</b> - анимировать слайд, который передается в качстве значения.</div>
+            </div>
+        </div>
+        <!--Пример виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+                <div class="col-md-12">
+                        <h3 class="h3 text-center">Пример</h3>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Создадим <b>Carousel</b> и добавим в него три кнопка. Направления перелистывание установим в "top" и атрибут <b>loop</b> устрановим в "True", чтобы можно было перелистывать слайды бесконечно:</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="code">
+                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                        <div><span class="keywords">from</span> kivy.uix.carousel <span class="keywords">import</span> Carousel</div>
+                        <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div><br>
+                        
+                        <div><span class="classanddef">class</span> <span class="nameclass">CarouselApp</span>(<span class="nameclass">App</span>):</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;carousel = Carousel(<span class="attr">direction</span> = <span class="val">'top'</span>,<span class="attr">loop</span> = <span class="classanddef">True</span> )</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button(<span class="attr">text</span> =<span class="val">'Кнопка'</span>)</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn2 = Button(<span class="attr">text</span> =<span class="val">'Кнопка2'</span>)</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn3 = Button(<span class="attr">text</span> =<span class="val">'Кнопка3'</span>)</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;carousel.add_widget(btn)</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;carousel.add_widget(btn2)</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;carousel.add_widget(btn3)</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> carousel</div><br>
+                        
+                            <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;CarouselApp().run()</div>   
+                        </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Результат</div>
+                </div>
+        </div>
+        <!--Изображения примера виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100 mb-1" src="file:///android_asset/img/widgets/carouselexample.gif" alt="">
+                </div>
+        </div>
+            
+    </div>
+</body>
+</html>

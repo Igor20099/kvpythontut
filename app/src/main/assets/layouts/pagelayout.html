@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Relative Layout</title>
+</head>
+<body>
+    <div class="container">
+            
+            <div class="row">
+                    <div class="col-md-12">
+                            <h2 class="text-center h2 ">Page Layout</h2>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="text-center mb-1">Модуль: <b>kivy.uix.pagelayout</b></div>
+                        </div>
+                    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img  class="w-100 mx-auto d-block"src="file:///android_asset/img/pagelayout.gif" alt="">
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div><b>Page Layout</b> - это макет, в котором каждый добавленный виджет будет являться отдельной страницей. Потянув за правый край влево можно переключиться на следующую страницу и так же потянув за левый край вправо можно переключиться на предыдущую страницу. Забегая вперед скажу, что каждый макет можно добавлять в другой макет.Так и в <b>Page Layout</b> можно добавить другие макеты и перелистывать их.</div>
+                </div>
+            </div>
+            <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Атрибуты</h3>
+                    </div>
+                </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>anim_kwargs</b> - принимает в качестве значения словарь. С помощью этого атрибута можно изменять анимацию перелистывания. По умолчанию "{'d': .5, 't': 'in_quad'}".</div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>border</b> - ширина границы вокруг текущей страницы, используемая для отображения областей прокрутки предыдущей / следующей страницы при необходимости.</div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>page</b> - принимает номер текущей отображаемой старницы по умолчанию.</div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>swipe_threshold</b> - пороговое значение используется для запуска пролистывания в процентах от размера виджета. Принимает значения от 0 до 1. По умолчанию 0.5.</div>
+                    </div>
+            </div>
+            <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Методы</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>add_widget(widget)</b> - добавляет виджет в макет.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>remove_widget(widget)</b> - удаляет виджет с макета.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+                <div class="row">
+                        <div class="col-md-12">
+                                <h3 class="text-center h3">Пример</h3>
+                        </div>
+                    </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Создадим <b>Page Layout</b> и три кнопки, где каждая кнопка будет отельной страницей:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="code">
+                                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                        <div><span class="keywords">from</span> kivy.uix.pagelayout <span class="keywords">import</span> PageLayout</div> 
+                                        <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div><br>
+
+                                        <div><span class="classanddef">class</span> <span class="nameclass">PageLayoutApp</span>(<span class="nameclass">App</span>):</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pl = PageLayout()</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button(<span class="attr">text</span> = <span class="val">'Кнопка'</span> )</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn2 = Button(<span class="attr">text</span> = <span class="val">'Кнопка2'</span>)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn3 = Button(<span class="attr">text</span> = <span class="val">'Кнопка3'</span>)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pl.add_widget(btn)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pl.add_widget(btn2)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pl.add_widget(btn3)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> pl</div><br>
+
+                                        <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;PageLayoutApp().run() </div>     
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Результат:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                                <img src="file:///android_asset/img/pagelayoutexample.jpg" alt="" class="w-100">
+                        </div>
+                        <div class="col-md-6">
+                                <img src="file:///android_asset/img/pagelayoutexample2.jpg" alt="" class="w-100">
+                        </div>
+                </div>
+            
+        
+    </div>
+</body>
+</html>

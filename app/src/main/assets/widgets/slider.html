@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Slider</title>
+</head>
+<body>
+    <div class="container">
+        <!--Название виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Slider</h2>
+            </div>
+        </div>
+        <!--Модуль где находиться класс виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center mb-1">Модуль: <b>kivy.uix.slider</b></div>
+                </div>
+        </div>
+        <!--Изображения виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" src="file:///android_asset/img/widgets/slider.gif" alt="">
+                </div>
+        </div>
+        <!--Описание виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>Slider</b> - виджет у которого ползунок можно передвигать от минимального до максимального значения.</div>
+                </div>
+        </div>
+        <!--Атрибуты виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Атрибуты</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>orintation</b> - принимает значение "horizontal"(горизонтальное положение) или "vertical"(вертикальное положение).</div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>min</b> - минимальное допустимое значение.</div>
+            </div>
+    </div>
+     <div class="row">
+        <div class="col-md-12">
+            <div class=""><b>max</b> - максимальное допустимое значение.</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class=""><b>value</b> - текущее используемое значения для слайдера. По умолчанию 0.</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class=""><b>step</b> - размер шага слайдера. По умолчанию 1.</div>
+        </div>
+    </div>
+        <!--Пример виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+                <div class="col-md-12">
+                        <h3 class="h3 text-center">Пример</h3>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Создадим приложение где при перетаскивания ползунка на слайдере будет записываться его значение в <b>Label</b>:</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="code">
+                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                            <div><span class="keywords">from</span> kivy.uix.boxlayout <span class="keywords">import</span> BoxLayout</div>
+                            <div><span class="keywords">from</span> kivy.uix.slider <span class="keywords">import</span> Slider</div>
+                            <div><span class="keywords">from</span> kivy.uix.label <span class="keywords">import</span> Label</div><br>
+                            
+                            <div><span class="classanddef">class</span> <span class="nameclass">SliderApp</span>(<span class="nameclass">App</span>):</div>  
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.bl = BoxLayout(<span class="attr">orientation</span> = <span class="val">'vertical'</span> )</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.s = Slider(<span class="attr">min</span> = <span class="namemethod">10</span>, <span class="attr">max</span> = <span class="namemethod">80</span> ,<span class="attr">value</span> = <span class="namemethod">15</span> )</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.label = Label(<span class="attr">text</span> = <span class="nameclass">str</span>(<span class="nameclass">int</span>(<span class="classanddef">self</span>.s.value)), <span class="attr">font_size</span> = <span class="val">'70sp'</span> )</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.s.bind(<span class="attr">value</span> = <span class="classanddef">self</span>.on_value)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.bl.add_widget(<span class="classanddef">self</span>.s)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.bl.add_widget(<span class="classanddef">self</span>.label) </div> 
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> <span class="classanddef">self</span>.bl</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">on_value</span>(<span class="attr">self</span>,<span class="attr">instance</span>,<span class="attr">value</span> ):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.label.text = <span class="nameclass">str</span>(<span class="nameclass">int</span>(<span class="classanddef">self</span>.s.value))</div><br>
+                                    
+                            
+                                <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;SliderApp().run()</div>       
+
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Результат</div>
+                </div>
+        </div>
+        <!--Изображения примера виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100 mb-1" src="file:///android_asset/img/widgets/sliderexample.gif" alt="">
+                </div>
+        </div>
+            
+    </div>
+</body>
+</html>

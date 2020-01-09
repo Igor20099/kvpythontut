@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Image</title>
+</head>
+<body>
+    <div class="container">
+        <!--Название виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Image</h2>
+            </div>
+        </div>
+        <!--Модуль где находиться класс виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center mb-1">Модуль: <b>kivy.uix.image</b></div>
+                </div>
+        </div>
+        <!--Изображения виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" src="file:///android_asset/img/widgets/image.png" alt="">
+                </div>
+        </div>
+        <!--Описание виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>Image</b> - используется для отображения изображения.</div>
+                </div>
+        </div>
+        <!--Атрибуты виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Атрибуты</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>source</b> - принимает в качестве значения путь к изображению в виде строки.</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>allow_stretch</b> - если значения "True", нормализованный размер изображения будет максимально увеличен, чтобы поместиться в поле изображения. Если "False" то изображение не будет растягиваться более чем на 1:1 пиксель.</div>
+                </div>
+        </div>
+        <!--Методы виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Методы</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>reload()</b> - перезагружает изображение с диска. Это облегчает повторную загрузку изображений с диска в случае изменения содержимого изображения.</div>
+                </div>
+        </div>
+        <!--Пример виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+                <div class="col-md-12">
+                        <h3 class="h3 text-center">Пример</h3>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Создадим приложения где загрузим изображения с диска и растяним его:</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="code">
+                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                            <div><span class="keywords">from</span> kivy.uix.image <span class="keywords">import</span>  Image</div><br>
+                            
+                            <div><span class="classanddef">class</span> <span class="nameclass">ImageApp</span>(<span class="nameclass">App</span>):</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;img = Image(<span class="attr">source</span> = <span class="val">'imageexample.png'</span>, <span class="attr">allow_stretch</span> = <span class="classanddef">True</span> )</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> img</div>
+                            
+                            <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;ImageApp().run()</div>
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Результат</div>
+                </div>
+        </div>
+        <!--Изображения примера виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" src="file:///android_asset/img/widgets/imageexample.png" alt="">
+                </div>
+        </div>
+        <!--Название виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <h2 class="h2 text-center">Async Image</h2>
+                </div>
+            </div>
+            <!--Модуль где находиться класс виджета-->
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center mb-1">Модуль: <b>kivy.uix.image</b></div>
+                    </div>
+            </div>
+            <!--Описание виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>Async Image</b> - используется для загрузки изображения с интернета в фоновом потоке.</div>
+                </div>
+        </div> 
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="code">async_image = AsyncImage(<span class="attr">source</span> = <span class="val">'URL изображения'</span> )</div>
+                </div>
+        </div>  
+    </div>
+</body>
+</html>

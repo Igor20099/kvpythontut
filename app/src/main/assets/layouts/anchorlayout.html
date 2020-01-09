@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Anchor Layout</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Anchor Layout</h2>
+
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="text-center mb-1">Модуль: <b>kivy.uix.anchorlayout</b></div>
+                        </div>
+                    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img  class="w-100"src="file:///android_asset/img/anchorlayout.gif" alt="">
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>Anchor Layout</b> - это макет, в котором виджеты могут быть привязаны к верху, низу, левому краю, правому краю или центру.</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+           </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Атрибуты</h3>
+                    </div>
+                </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>anchor_x</b> - привязывает виджет по горизонтали. Принимает значения "left", "center", "right".</div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>anchor_y</b> - привязывает виджет по вертикали. Принимает значения "top", "center", "bottom".</div>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div><b>padding</b> - внутренние отступы. Принимает список значений в пискелях "[padding_left, padding_top, padding_right, padding_bottom]".Так же можно назначить отступ по горизонтали и вертикали "[padding_horizontal, padding_vertical]" или одинаковое значение отступов со всех сторон "[padding]".</div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+           </div> 
+            <div class="row">
+                    <div class="col-md-12">
+                            <h3 class="text-center h3">Методы</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>add_widget(widget)</b> - добавляет виджет в макет.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div><b>remove_widget(widget)</b> - удаляет виджет с макета.</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="divider"></div>
+                        </div>
+                   </div> 
+                <div class="row">
+                        <div class="col-md-12">
+                                <h3 class="text-center h3">Пример</h3>
+                        </div>
+                    </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Привяжем кнопку к верхнему левому углу:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="code overflow-auto  text-nowrap mb-1">
+                                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                        <div><span class="keywords">from</span>  kivy.uix.anchorlayout <span class="keywords">import</span> AnchorLayout</div>
+                                        <div><span class="keywords">from</span>  kivy.uix.button <span class="keywords">import</span> Button</div><br>
+                                        
+                                        <div><span class="classanddef">class</span> <span class="nameclass">AnchorLayoutApp</span>( <span class="nameclass">App</span> ):</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>( <span class="attr">self</span> ):</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;al = AnchorLayout(<span class="attr">anchor_x</span> = <span class="val">'left'</span>, <span class="attr">anchor_y</span> = <span class="val">'top'</span> )</div>
+                                            <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Значения size_hint ставим в None чтобы кнопка не растягивалась на весь макет</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button(<span class="attr">text</span> = <span class="val">'Кнопка'</span>, <span class="attr">size_hint</span>  = (<span class="classanddef">None</span>,<span class="classanddef">None</span>))</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;al.add_widget(btn)</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> al</div>
+                                        
+                                        <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;AnchorLayoutApp().run()</div>        
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Результат:</div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <img src="file:///android_asset/img/layouts/anchorlayout.jpg" alt="" class="w-100">
+                        </div>
+                </div>
+            
+        
+    </div>
+</body>
+</html>

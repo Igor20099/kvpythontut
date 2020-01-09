@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>ModalView</title>
+</head>
+<body>
+    <div class="container">
+        <!--Название виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Modal View</h2>
+            </div>
+        </div>
+        <!--Модуль где находиться класс виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center mb-1">Модуль: <b>kivy.uix.modalview</b></div>
+                </div>
+        </div>
+        <!--Изображения виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100 mb-1" src="file:///android_asset/img/widgets/modalview.gif" alt="">
+                </div>
+        </div>
+        <!--Описание виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>Modal View</b> - виджет который из себя представляет модальное окно.</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+           </div>
+        <!--Атрибуты виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Атрибуты</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""> <b>auto_dismiss</b> - принимает значение "True" или "False". Если значение "True", то кликнув на любой области в окне приложения модальное окно закроется. Если "False", то модальное окно не будет закрываться пока не будет вызван метод <b>dismiss</b>.</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+           </div>
+        <!--Методы виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Методы</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""> <b>open()</b> - открывает модальное окно.</div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""> <b>dismiss()</b> - закрывает модальное окно.</div>
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-md-12">
+                <div class=""> <b>add_widget()</b> - добавляет в модальное окно виджет(макет).</div>
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <!--Пример виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                        <h3 class="h3 text-center">Пример</h3>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-1">Создадим приложение, где добавим кнопку для открытия модального окна. В модальное окно добавим макет <b>Box Layout</b>, а в него <b>label</b> и кнопку для закрытия модального окна:</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="code">
+                            <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                            <div><span class="keywords">from</span> kivy.uix.modalview <span class="keywords">import</span> ModalView</div>
+                            <div><span class="keywords">from</span> kivy.uix.boxlayout <span class="keywords">import</span> BoxLayout</div>
+                            <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div>
+                            <div><span class="keywords">from</span> kivy.uix.label <span class="keywords">import</span> Label</div><br>
+                            
+                            <div> <span class="classanddef">class</span> <span class="nameclass">ModalViewApp</span>( <span class="nameclass">App</span>):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                                <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Cоздаем модальное окно и атрибуту auto_dismiss присваиваем значение False для того чтобы окно закрывалось только по нажатию кнопки</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modal = ModalView(<span class="attr">size_hint</span>=(<span class="classanddef">None</span> ,<span class="classanddef">None</span>), <span class="attr">size</span> =(<span class="namemethod">400</span> ,<span class="namemethod">400</span>), <span class="attr">auto_dismiss</span>=<span class="attr">False</span>)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl = BoxLayout(<span class="attr">orientation</span> =<span class="val">'vertical'</span>, <span class="attr">size_hint</span>=(<span class="classanddef">None</span> ,<span class="classanddef">None</span>))</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label = Label(<span class="attr">text</span>=<span class="val">'Модальное окно'</span>, <span class="attr">size_hint</span>=(<span class="classanddef">None</span> ,<span class="classanddef">None</span>))</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_close = Button(<span class="attr">text</span>=<span class="val">'Закрыть'</span>, <span class="attr">size_hint</span>=(<span class="classanddef">None</span> ,<span class="classanddef">None</span>))</div>
+                                <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Привязываем событию по нажатию на кнопку метод закрытия модального окна</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_close.bind(<span class="attr">on_press</span>=modal.dismiss)</div>
+                                <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Добавляем label и кнопку закрытия модального окна в Box Layout</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(label)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(btn_close)</div>
+                                <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Добавляем в модальное окно макет Box Layout</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modal.add_widget(bl)</div>
+                                <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Создаем кнопку открытия модального окна и привязываем событию по нажатию на копку метод открытия модального окна</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_open = Button(<span class="attr">text</span> = <span class="val">'Открыть модальное окно'</span>, <span class="attr">size_hint</span>=(<span class="classanddef">None</span> , <span class="classanddef">None</span>), <span class="attr">size</span>=( <span class="namemethod">200</span> , <span class="namemethod">100</span> ), <span class="attr">pos_hint</span> = {<span class="val">'x'</span> : <span class="namemethod">0.37</span> , <span class="val">'y'</span> : <span class="namemethod">0</span> })</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_open.bind(<span class="attr">on_press</span> = modal.open)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> btn_open</div> <br>
+                                    
+                            
+                                <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;ModalViewApp().run()</div> 
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-1">Результат:</div>
+                </div>
+        </div>
+        <!--Изображения примера виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100 mb-1" src="file:///android_asset/img/widgets/modalviewexample.gif" alt="">
+                </div>
+        </div>
+            
+    </div>
+</body>
+</html>

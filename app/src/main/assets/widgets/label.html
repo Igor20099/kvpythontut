@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Label</title>
+</head>
+<body>
+    <div class="container">
+        <!--Название виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Label</h2>
+            </div>
+        </div>
+        <!--Модуль где находиться класс виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center mb-1">Модуль: <b>kivy.uix.label</b></div>
+                </div>
+        </div>
+        <!--Изображения виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" src="file:///android_asset/img/widgets/label.png" alt="">
+                </div>
+        </div>
+        <!--Описание виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>Label</b> - виджет для отображения текста.Он поддерживает строки "ascii" и "unicode".</div>
+                </div>
+        </div>
+        <!--Атрибуты виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Атрибуты</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>text</b> - текст для отображения.</div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>font_name</b> - название шрифта.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>font_size</b> - размер шрифта.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>halign</b> - горизонтальное выравнивание текста. Принимает одно из значений: "auto", "left", "center", "right", "justfy".</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>valign</b> - вертикальное выравнивание текста. Принимает одно из значений: "botton", "middle", "top".</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>italic</b> - указывает на использование курсивной версии вашего шрифта если равен "True". По умолчанию "False".</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>bold</b> - указывает на использование жирной версии вашего шрифта если равен "True". По умолчанию "False".</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>line_height</b> - высота строки у текста .Например, line_height = 2 привет к тому, что расстояние между строками будет в два раза больше.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>markup</b> - если  значение "True", то для текста можно установить разметку ("[color=ffffff]text[/color]"). По умолчанию "False".</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>max_lines</b> - максимальное количество строк. По умолчанию 0, что означает неограниченное количество строк.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>outline_color</b> - цвет контура текста в формате (r,g,b). По умолчанию "[0,0,0]"</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>outline_width</b> - ширина в пикселях для контура вокруг текста. Контур не будет отображаться, если значение равно "None". По умолчанию "None"</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>padding</b> - внутренние отступы в формате "(padding_x,padding_y)". Так же можно отдельно присваивать <b>padding_x</b> и <b>padding_y</b>.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>strikethrough</b> - если значение "True" добавляет зачеркнутую строку к тексту. По умолчанию "False".</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>strip</b> - если значение "True" убирает пробелы вначале и в конце. По умолчанию "False".</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>text_size</b> - ограничивает размер текста принимает в качетсве значения кортеж. По умолчанию "(None,None)".</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>underline</b> - если значение "True", добавляет подчеркивание к тексту. По умолчанию "False".</div>
+            </div>
+        </div>
+        <!--Методы виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Теги для разметки текста</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="">Доступны следующие теги:</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>[b][/b]</b> - жирный шрифт текста.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>[i][/i]</b> - курсивный шрифт текста.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>[u][/u]</b> - подчеркнутый текст.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>[s][/s]</b> - зачеркнутый текст.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>[font=&ltstr&gt][/font]</b> - изменить шрифт (примечание: это относится к файлу TTF или зарегистрированному псевдониму).</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>[font_context=&ltstr&gt][/font_context]</b> - Измените контекст для шрифта, используйте строковое значение «none» для изолированного контекста (это эквивалентно None. Если вы создали контекст шрифта с именем «none» , на него нельзя ссылаться с использованием разметки).</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>[font_family=&ltstr&gt][/font_family]</b> -  cемейство шрифтов для текста в этом теге. Это действительно только при использовании контекста шрифта.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>[font_features=&ltstr&gt][/font_features]</b> - Особенности шрифта OpenType в формате CSS передаются в Pango. Эффект запроса функции зависит от загруженных шрифтов, версий библиотеки и т. Д. Только для Pango, требуется версия 1.38 или новее.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>[size=&ltinteger&gt][/size]</b> - изменить размер шрифта.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>[color=#&ltcolor&gt][/color]</b> - изменить цвет текста.</div>
+            </div>
+        </div>
+<!--        <div class="row">-->
+<!--            <div class="col-md-12">-->
+<!--                <div class=""><b>[ref=&ltstr&gt][/ref]</b> - Добавьте интерактивную зону. Ссылка + ограничивающая рамка внутри ссылки будет доступна в <b>Label.refs</b>.</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-12">-->
+<!--                <div class=""><b>[anchor=&ltstr&gt]</b> - поставьте якорь в тексте. Вы можете получить позицию своего якоря в тексте с помощью <b>Label.anchors</b>.</div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""> <b>[sub][/sub]</b> -  отображает текст маленьком шрифтом внизу. Например 2<b><sub>8</sub></b> </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>[sup][/sup]</b> - отображает текст в верхнем индексе относительно текста перед ним. Например 2<b><sup>8</sup></b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>[text_language=&ltstr&gt][/text_language]</b> - язык текста, это языковой тег формата RFC-3066 (в виде строки), например «en_US», «zh_CN», «fr» или «ja».</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""> 
+                    <div>Если вы хотите визуализировать текст разметки с помощью символа <b>[</b> или <b>]</b> или <b>&</b>, вам нужно экранировать их:</div>
+    
+                    <div><b>[ </b>  -> <b>&amp;bl;</b></div>
+                    <div>]   -> <b>&amp;br;</b></div>
+                    <div>&   -> <b>&amp;</b></div>
+                    <div>Тогда вы можете написать:</div>
+    
+                    <div>"[size=24]Hello &amp;bl;World&amp;br;[/size]"</div></div>
+            </div>
+        </div>        
+        <!--Пример виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+                <div class="col-md-12">
+                        <h3 class="h3 text-center">Пример</h3>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Создадим <b>Label</b>  и выведем текст "Hello Kivy". Расположим по центру и с помощью разметки, слово "Hello" выделим красным, а "Kivy" зеленым. Незабываем для разметки текста атрибут <b>markup</b> ставить в "True":</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="code">
+                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                            <div><span class="keywords">from</span> kivy.uix.label <span class="keywords">import</span> Label</div><br>
+                            
+                            <div><span class="classanddef">class</span> <span class="nameclass">LabelApp</span>( <span class="nameclass">App</span> ):</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label = Label(<span class="attr">text</span> = <span class="val">'[color=ff0000]Hello[/color] [color=00ff00]Kivy[/color]'</span>,<span class="attr">font_size</span> = <span class="val">'50sp'</span>, <span class="attr">halign</span> = <span class="val">'center'</span>,<span class="attr">valign</span> = <span class="val">'middle'</span>, <span class="attr">markup</span> = <span class="classanddef">True</span> )</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> label</div><br>
+                            
+                                <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;LabelApp().run()</div>   
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Результат:</div>
+                </div>
+        </div>
+        <!--Изображения примера виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100 mb-1" src="file:///android_asset/img/widgets/labelexample.png" alt="">
+                </div>
+        </div>
+            
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Первое приложение с Kv Design Language</title>
+</head>
+<body>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                    <h2 class="h2 text-center">Первое приложение c Kv Design Language</h2>
+              </div>
+          </div>
+          <div class="row">
+                <div class="col-md-12">
+                      <div>Напишем первой приложение с <b>Kv Design Language</b>. Для начала создадим файл <b>myapp.py</b>, где напишем такой код:</div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                          <div class="code">
+                                <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                <div><span class="keywords">from</span> kivy.uix.boxlayout <span class="keywords">import</span> BoxLayout</div><br>
+                                
+                                <div class="comment">#Пустой класс для которого будем создавать разметку с помощью Kivy Design Language. <br> #Данный класс наследуется от макета Box Layout</div>
+                                <div><span class="classanddef">class</span> <span class="nameclass">Example</span>(<span class="nameclass">BoxLayout</span>):</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">pass</span></div><br>
+                                
+                                <div class="comment">#Основной класс с методом build который возвращает экземляр класса Example</div>
+                                <div><span class="classanddef">class</span> <span class="nameclass">MyApp</span>( <span class="nameclass">App</span> ):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>( <span class="attr">self</span> ):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;example = Example()</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> example</div><br>
+                                
+                                <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;MyApp().run() </div>  
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                              <div>Далее в той же папке где лежит файл <b>myapp.py</b> создадим файл <b>my.kv</b>. Название файла <b>Kv Deisgn Language</b> должен быть в нижнем регистре и должен совпадать с названием класса в нашем случае <b>MyApp</b> (например есть класс будет называться <b>ExampleApp</b> тогда файл Kv Design Language будет называться <b>example.kv</b>). Причем окончание <b>App</b> писать ненужно. Далее напишем разметку:</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-12">
+                                  <div class="code">
+                                        <div class="comment">#:kivy 1.10.0</div>
+                                        <div class="kvlangcolor">&lt;Example&gt;:</div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">orientation:</span><span class="val">'vertical'</span></div>
+                                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">pos_hint:</span> { <span class="val">'center_x'</span> : <span class="namemethod">1</span> ,<span class="val">'center_y'</span>:<span class="namemethod">1</span> }</div>
+                                            <div class="namemethod">&nbsp;&nbsp;&nbsp;&nbsp;Button:</div>
+                                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">text:</span> <span class="val">'hello'</span></div>
+                                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">size_hint:</span>(None,None)</div>
+                                            <div class="namemethod">&nbsp;&nbsp;&nbsp;&nbsp;Button:</div>
+                                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">text:</span><span class="val">'kivy'</span></div>
+                                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attr">size_hint:</span>(None,None)</div> 
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-12">
+                                      <div>Сначало пишем наш пустой класс созданный в <b>myapp.py</b> в угловых скобках. Далее прописываем атрибуты ориентации и позицию по центру.Внутри класса создаем две кнопки и у них так же прописываем атрибуты. Запускаем <b>myapp.py</b> и вот что в итоге должно получиться:</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <img  class="w-100"src="file:///android_asset/img/firstappkvdesign.png" alt="">
+                                    </div>
+                                </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Accordion</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class = "h2 text-center">Accordion</h2>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center mb-1">Модуль: <b>kivy.uix.accordion</b></div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                        <img  class="w-100"src="file:///android_asset/img/accordion.gif" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class=""><b>Accordion</b> - представляет собой форму меню, в котором параметры располагаются вертикально или горизонтально, а при нажатии на элемент открывается для отображения его содержимое.<b>Accordion</b> состоит из элементов <b>AccordionItem</b>. В <b>AccordionItem</b> можно помещать, как виджеты, так и макеты.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="divider"></div>
+                    </div>
+               </div> 
+                <div class="row">
+                        <div class="col-md-12">
+                            <h3  class="h3 text-center">Структура</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="border border-dark mb-1">Accordion: <br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;AccordionItem: <br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Контент(виджеты или макеты) <br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;AccordionItem: <br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BoxLayout(макет):<br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Контент(виджеты или макеты) <br>
+                            </div>
+                    </div>
+                </div>
+               
+                <div class="row">
+                        <div class="col-md-12">
+                            <h3  class="h3 text-center">Атрибуты</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class=""><b>orientation</b> - принимает значение "horizontal"(горизонтальное расположение элементов) или "vertical"(вертикальное расположение элементов).
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class=""><b>anim_duration</b> - продолжительность анимации в секундах при выборе нового элемента аккордеона. По умолчанию 0.25 (250мс).
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class=""><b>min_space</b> - минимальное пространство для заголовка каждого элемента. Это значение автоматически устанавливается для каждого дочернего элемента каждый раз, когда происходит событие макета. По умолчанию 44 px.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="divider"></div>
+                    </div>
+               </div> 
+                <div class="row">
+                        <div class="col-md-12">
+                            <h3  class="h3 text-center">Методы</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class=""><b>add_widget(AccordionItem)</b> - добавляет элемент <b>Accordion Item</b>.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class=""><b>remove_widget(AccordionItem)</b> - удаляет элемент <b>Accordion Item</b>.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="divider"></div>
+                    </div>
+               </div> 
+                <div class="row">
+                        <div class="col-md-12">
+                            <h3  class="h3 text-center">AccordionItem</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <h4  class="h4 text-center">Атрибуты</h4>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class=""><b>title</b> - заголовок элемента меню.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <h4  class="h4 text-center">Методы</h4>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class=""><b>add_widget(Widget)</b> - добавляет виджет или макет.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class=""><b>remove_widget(Widget)</b> - удаляет виджет или макет.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="divider"></div>
+                    </div>
+               </div> 
+                <div class="row">
+                        <div class="col-md-12">
+                            <h3  class="h3 text-center">Пример</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="">Создадим <b>Accordion</b> и добавим в него два <b>AccordionItem</b>. Добавим в каждый <b>AccrodionItem</b> макет <b>Box Layout</b>. В один <b>Box Layout</b> поместим три кнопки, а в другой три лейбла:
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                           <div class="code mb-1">
+                            <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                <div><span class="keywords">from</span> kivy.uix.accordion <span class="keywords">import</span> Accordion, AccordionItem</div>
+                                <div><span class="keywords">from</span> kivy.uix.boxlayout <span class="keywords">import</span> BoxLayout</div>
+                                <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div>
+                                <div><span class="keywords">from</span> kivy.uix.label <span class="keywords">import</span> Label</div><br>
+                                
+                                <div><span class="classanddef">class</span> <span class="nameclass">AccordionApp</span>(<span class="nameclass">App</span>):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accordion = Accordion(<span class="attr">orientation</span> = <span class="val">'vertical'</span>)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl = BoxLayout(<span class="attr">orientation</span> = <span class="val">'vertical'</span>)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button(<span class="attr">text</span> = <span class="val">'Кнопка'</span> )</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn2 = Button(<span class="attr">text</span> = <span class="val">'Кнопка2'</span>)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn3 = Button(<span class="attr">text</span> = <span class="val">'Кнопка3'</span>)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(btn)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(btn2)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(btn3)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accordion_item = AccordionItem(<span class="attr">title</span> =  <span class="val">"Кнопки"</span> )</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accordion_item.add_widget(bl)</div><br>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl2 = BoxLayout(<span class="attr">orientation</span> = <span class="val">'vertical'</span>)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label = Label(<span class="attr">text</span> = <span class="val">'Строка'</span> )</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label2 = Label(<span class="attr">text</span> = <span class="val">'Строка2'</span>)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label3 = Label(<span class="attr">text</span> = <span class="val">'Строка3'</span>)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl2.add_widget(label)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl2.add_widget(label2)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl2.add_widget(label3)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accordion_item2 = AccordionItem(<span class="attr">title</span> =  <span class="val">"Строки"</span> )</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accordion_item2.add_widget(bl2)</div><br>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accordion.add_widget(accordion_item)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accordion.add_widget(accordion_item2)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> accordion</div><br>
+                                
+                                <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;AccordionApp().run() </div>
+                           </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="">Результат:
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <img  class="w-100 mb-1"src="file:///android_asset/img/accordionexample.gif" alt="">
+                        </div>
+                    </div>
+                
+                    
+    </div>
+</body>
+</html>

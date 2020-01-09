@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Вложенные макеты</title>
+</head>
+<body>
+    <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                        <h2 class="h2 text-center">Вложенные макеты</h2>
+                </div>    
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                            <div>Любой макет можно вложить в другой макет. Давайте напишем небольшое приложение, где создадим три макета: <b>Page Layout</b>, <b>Box Layout</b> и <b>Stack Layout</b>. В <b>Box Layout</b> и <b>Stack layout</b> добавим по четыре кнопки. Далее добавим в <b>Page Layout</b> макеты <b>Box Layout</b> и <b>Stack Layout</b>:</div>
+                    </div>    
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div class="code overflow-auto text-nowrap mb-1">
+                                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                                        <div><span class="keywords">from</span> kivy.uix.pagelayout <span class="keywords">import</span> PageLayout</div>
+                                        <div><span class="keywords">from</span> kivy.uix.boxlayout <span class="keywords">import</span> BoxLayout</div>
+                                        <div><span class="keywords">from</span> kivy.uix.stacklayout <span class="keywords">import</span> StackLayout</div>
+                                        <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div><br>
+
+                                        <div><span class="classanddef">class</span> <span class="nameclass">NestedLayoutsApp</span>( <span class="nameclass">App</span> ):</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pl = PageLayout()</div><br>
+
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl = BoxLayout(<span class="attr">orientation</span> = <span class="val">'vertical'</span>)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn = Button(<span class="attr">text</span> = <span class="val">'Кнопка'</span>)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn2 = Button(<span class="attr">text</span> = <span class="val">'Кнопка2'</span>)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn3 = Button(<span class="attr">text</span> = <span class="val">'Кнопка3'</span>)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn4 = Button(<span class="attr">text</span> = <span class="val">'Кнопка4'</span>)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(btn)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(btn2)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(btn3)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bl.add_widget(btn4)</div><br>
+
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sl = StackLayout(<span class="attr">orientation</span> = <span class="val">'lr-bt'</span> )</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn5 = Button(<span class="attr">text</span> = <span class="val">'Кнопка5'</span>,<span class="attr">size_hint</span> = ( <span class="namemethod">0.25</span> , <span class="namemethod">0.5</span> ))</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn6 = Button(<span class="attr">text</span> = <span class="val">'Кнопка6'</span>,<span class="attr">size_hint</span> = ( <span class="namemethod">0.25</span> , <span class="namemethod">0.5</span> ))</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn7 = Button(<span class="attr">text</span> = <span class="val">'Кнопка7'</span>,<span class="attr">size_hint</span> = ( <span class="namemethod">0.25</span> , <span class="namemethod">0.5</span> ))</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn8 = Button(<span class="attr">text</span> = <span class="val">'Кнопка8'</span>,<span class="attr">size_hint</span> = ( <span class="namemethod">0.25</span> , <span class="namemethod">0.5</span> ))</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sl.add_widget(btn5)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sl.add_widget(btn6)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sl.add_widget(btn7)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sl.add_widget(btn8)</div><br>
+
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pl.add_widget(bl)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pl.add_widget(sl)</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> pl</div><br>
+
+                                        <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;NestedLayoutsApp().run() </div>     
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                                <div>Результат:</div>
+                        </div>    
+                    </div>
+                    <div class="row">
+                            <div class="col-md-12">
+                                    <img src="file:///android_asset/img/nestedlayouts.gif" alt="" class="w-100 mb-1 m-1">
+                            </div>
+                    </div>
+    </div>
+</body>
+</html>

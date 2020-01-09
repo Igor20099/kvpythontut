@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Spinner</title>
+</head>
+<body>
+    <div class="container">
+        <!--Название виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Spinner</h2>
+            </div>
+        </div>
+        <!--Модуль где находиться класс виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center mb-1">Модуль: <b>kivy.uix.spinner</b></div>
+                </div>
+        </div>
+        <!--Изображения виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100 mb-1" src="file:///android_asset/img/widgets/spinner.gif" alt="">
+                </div>
+        </div>
+        <!--Описание виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>Spinner</b> - это виджет, который обеспечивает быстрый способ выбора одного значения и списка.</div>
+                </div>
+        </div>
+        <!--Атрибуты виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+           </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Атрибуты</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>is_open</b> - если "True", то спиcок <b>spinner</b> изначально будет открыт. Если "False",то закрыт. По умолчанию "False".</div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=""><b>values</b> - принимает в качестве значаения список , который будет отображаться для выбора элемента из списка.</div>
+            </div>
+    </div>
+        <!--Методы виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+           </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Методы</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>bind(событие = название метода)</b> - с помощью метода bind можно привязать к событию метод.</div>
+                </div>
+        </div>
+        <!--Пример виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="divider"></div>
+                </div>
+           </div>
+        <div class="row">
+                <div class="col-md-12">
+                        <h3 class="h3 text-center">Пример</h3>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-1">Напишем приложение, где при выборе элемента из списка <b>spinner</b> текст будет выводиться в <b>label</b>:</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="code">
+                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                        <div><span class="keywords">from</span>  kivy.uix.floatlayout <span class="keywords">import</span>  FloatLayout</div>
+                        <div><span class="keywords">from</span>  kivy.uix.spinner <span class="keywords">import</span>  Spinner</div>
+                        <div><span class="keywords">from</span>  kivy.uix.label <span class="keywords">import</span>  Label</div><br>
+                        
+                        <div><span class="classanddef">class</span> <span class="nameclass">SpinnerApp</span>(<span class="nameclass">App</span>):</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fl = FloatLayout()</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.spinner = Spinner(<span class="attr">text</span> = <span class="val">"First"</span>, <span class="attr">values</span> =(<span class="val">"First"</span>,<span class="val">"Second"</span>, <span class="val">"Third"</span>),<span class="attr">size_hint</span> = (<span class="namemethod">0.3</span>,<span class="namemethod">0.2</span>), <span class="attr">pos_hint</span> ={<span class="val">'center_x'</span>: <span class="namemethod">0.5</span> ,<span class="val">'center_y'</span>:<span class="namemethod">0.5</span>})</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.label = Label(<span class="attr">text</span> = <span class="classanddef">self</span>.spinner.text,<span class="attr">size_hint</span> = (<span class="namemethod">0.3</span>, <span class="namemethod">0.2</span> ), <span class="attr">pos_hint</span> = {<span class="val">'center_x'</span>: <span class="namemethod">0.5</span> , <span class="val">'center_y'</span>: <span class="namemethod">0.8</span> })</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.spinner.bind(<span class="attr">text</span> = <span class="classanddef">self</span>.on_selected_spinner)</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fl.add_widget(<span class="classanddef">self</span>.spinner)</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fl.add_widget(<span class="classanddef">self</span>.label)</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> fl</div><br>
+                            
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">on_selected_spinner</span>(<span class="attr">self</span>, <span class="attr">spinner</span>, <span class="attr">text</span>):</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.label.text = text</div><br>
+                        
+                        
+                        <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;SpinnerApp().run()</div>
+                         </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-1">Результат:</div>
+                </div>
+        </div>
+        <!--Изображения примера виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" src="file:///android_asset/img/widgets/spinnerexample.gif" alt="">
+                </div>
+        </div>
+            
+    </div>
+</body>
+</html>

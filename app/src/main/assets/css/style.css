@@ -1,0 +1,76 @@
+.code {
+    overflow-x: scroll;
+    width: 100%;
+    white-space: nowrap;
+    background-color: Black;
+    color:white;
+    padding: 8px;
+    word-spacing: 2px;
+    border: 2px solid grey;
+    
+}
+
+.comment {
+    color:#45e05f;
+}
+
+.keywords {
+    color:rgb(228, 120, 228);
+}
+
+.classanddef {
+    color: rgb(115, 177, 248);
+}
+
+.nameclass {
+    color: #7be2b2;
+}
+
+.namemethod {
+    color:yellow;
+}
+
+.text {
+    margin: 8px 0;
+    font-size: 18px;
+}
+
+.attr {
+    color:rgb(145, 184, 211)
+}
+
+.val {
+    color:#da8e50
+}
+
+
+.title {
+    text-align: center;
+}
+
+.descript {
+    font-weight: 100;
+    margin: 8px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.attribute {
+    margin: 8px;
+}
+.divider {
+    height: 1px;
+    width:100%;
+    display:block; /* for use on default inline elements like span */
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #000000;
+  }
+
+ .kvlangcolor {
+     color:rgb(115, 248, 155)
+ }
+
+  

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Switch</title>
+</head>
+<body>
+    <div class="container">
+        <!--Название виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Switch</h2>
+            </div>
+        </div>
+        <!--Модуль где находиться класс виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center mb-1">Модуль: <b>kivy.uix.switch</b></div>
+                </div>
+        </div>
+        <!--Изображения виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100 mb-1" src="file:///android_asset/img/widgets/switch.gif" alt="">
+                </div>
+        </div>
+        <!--Описание виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>Switch</b> - виджет который представляет собой переключатель, где "on"(включен) и "off"(выключен)</div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <!--Атрибуты виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Атрибуты</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>active</b> - принимает значение "True" или "False". Если значение "True", то <b>switch</b> переключаеться на "on". Если "False", то на "off". По умолчанию "False".</div>
+                </div>
+        </div>
+        <!--Методы виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Методы</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>bind(событие = название метода)</b> - с помощью метода bind можно привязать к событию метод.</div>
+                </div>
+        </div>
+        <!--Пример виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div>
+        <div class="row">
+                <div class="col-md-12">
+                        <h3 class="h3 text-center">Пример</h3>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-1">Напишем приложение, где при переключении <b>switch</b> будет меняться цвет фона. Если переключатель будет в позиции "on" то цвет фона будет белый, а если "off" черный. Для того чтобы менять цвет фона импортируем класс <b>Window</b> из модуля <b>kivy.core.window</b>. У класса <b>Window</b> есть атрибут <b>clearcolor</b> который принимает в качестве значения list(цвет в формате <b>RGBA</b>):</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="code">
+
+                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                        <div><span class="keywords">from</span> kivy.core.window <span class="keywords">import</span> Window</div>
+                        <div><span class="keywords">from</span> kivy.uix.switch <span class="keywords">import</span> Switch</div><br>
+
+                        <div><span class="classanddef">class</span> <span class="nameclass">SwitchApp</span>(<span class="nameclass">App</span>):</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>(<span class="attr">self</span>):</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch = Switch(<span class="attr">active </span>= <span class="classanddef">False</span> )</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch.bind(<span class="attr">active</span> = <span class="classanddef">self</span>.on_active)</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return</span> switch</div><br>
+                        <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;#Создадим метод, где если атрибут active будет в позиции "on" фон станет белым цветом иначе если "off" черным</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">on_active</span>(<span class="attr">self</span>,<span class="attr">instance</span>, <span class="attr">value</span>):</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">if</span> value:</div>
+                        <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Метод clearcolor принимает в качестве значения list(цвет в формате RGBA).Значение от 0 до 1, где один равен значение 255.</div>
+                        <div class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#Получается если нам нужен белый цвет(255,255,255) то значение будет (1,1,1,1),если черный то (0,0,0,1)</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Window.clearcolor = (<span class="namemethod">1</span>,<span class="namemethod">1</span>,<span class="namemethod">1</span>,<span class="namemethod">1</span>)</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">else</span>:</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Window.clearcolor = (<span class="namemethod">0</span>,<span class="namemethod">0</span>,<span class="namemethod">0</span>,<span class="namemethod">1</span>)</div><br>    
+
+                        <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;SwitchApp().run()</div>
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-1">Результат:</div>
+                </div>
+        </div>
+        <!--Изображения примера виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" src="file:///android_asset/img/widgets/switchexample.gif" alt="">
+                </div>
+        </div>
+            
+    </div>
+</body>
+</html>

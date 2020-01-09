@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Button</title>
+</head>
+<body>
+    <div class="container">
+        <!--Название виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Button</h2>
+            </div>
+        </div>
+        <!--Модуль где находиться класс виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center mb-1">Модуль: <b>kivy.uix.button</b></div>
+                </div>
+        </div>
+        <!--Изображения виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100" src="file:///android_asset/img/widgets/button.jpg" alt="">
+                </div>
+        </div>
+        <!--Описание виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""> <b>Button</b> - кнопка при нажатия которой, происходит назначенное на эту кнопку событие.</div>
+                </div>
+        </div>
+        <!--Атрибуты виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div> 
+        <div class="row">
+            <div class="col-md-12">
+                    <h3 class="h3 text-center">Атрибуты</h3>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>text</b> - текст который отображается на кнопке.</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>font_size</b> - размер шрифта текста на кнопке.</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>on_press</b> - событие при нажатие на кнопку. Принимает в качестве значения названия метода.
+                </div>
+        </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class=""><b>on_release</b> - событие при отпускания нажатия на кнопку. Принимает в качестве значения названия метода.</div>
+                </div>
+        </div>
+
+        <!--Методы виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div> 
+        <div class="row">
+                <div class="col-md-12">
+                        <h3 class="h3 text-center">Методы</h3>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class=""><b>bind(событие = название метода)</b> - с помощью метода bind можно привязать к событию метод.</div>
+                    </div>
+            </div>
+        <!--Пример виджета-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="divider"></div>
+            </div>
+       </div> 
+        <div class="row">
+                <div class="col-md-12">
+                        <h3 class="h3 text-center">Пример</h3>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Создадим кнопку при нажатие на которую текст кнопки будет меняться на "Ок":</div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="code">
+                        <div><span class="keywords">from</span> kivy.app <span class="keywords">import</span> App</div>
+                            <div><span class="keywords">from</span> kivy.uix.button <span class="keywords">import</span> Button</div><br>
+                            
+                            <div><span class="classanddef">class</span> <span class="nameclass">ButtonApp</span>(<span class="nameclass">App</span>):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">build</span>( <span class="attr">self</span> ):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.btn = Button(<span class="attr">text</span> =<span class="val">'Кнопка'</span>)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.btn.bind(<span class="attr">on_press</span> = <span class="classanddef">self</span>.click)</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywords">return </span> <span class="classanddef">self</span>.btn</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">def</span> <span class="namemethod">click</span> (<span class="attr">self</span>, <span class="attr">instance</span> ):</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="classanddef">self</span>.btn.text = <span class="val">"Ok"</span> </div><br>  
+                            
+                                <div><span class="keywords">if</span> <span class="attr">__name__</span> == <span class="val">'__main__'</span>:</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;ButtonApp().run()</div>
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="">Результат:</div>
+                </div>
+        </div>
+        <!--Изображения примера виджета-->
+        <div class="row">
+                <div class="col-md-12">
+                    <img class="w-100 mb-1" src="file:///android_asset/img/widgets/buttonexample.gif" alt="">
+                </div>
+        </div>
+            
+    </div>
+</body>
+</html>
