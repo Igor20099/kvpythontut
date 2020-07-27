@@ -47,6 +47,10 @@ public class DetailKivyDesignLanguageAcitvity extends AppCompatActivity {
                 detailKvWebView.loadUrl("file:///android_asset/kivydesign/classbuilder.html");
                 setTitle("Класс Builder");
                 break;
+            case 3:
+                detailKvWebView.loadUrl("file:///android_asset/kivydesign/id.html");
+                setTitle("Атрибут id");
+                break;
         }
     }
 

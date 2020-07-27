@@ -3,6 +3,7 @@
     package="com.joymaker.kivytutorials">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SET_ALARM"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetailKivyDesignLanguageAcitvity"></activity>
+        <receiver android:name=".AlarmReceiver"></receiver>
+        <activity android:name=".DetailExample"></activity>
+        <activity android:name=".ExampleActivity" />
+        <activity android:name=".DetailKivyDesignLanguageAcitvity" />
         <activity android:name=".KivyDesignLanguageActivity" />
 
         <meta-data

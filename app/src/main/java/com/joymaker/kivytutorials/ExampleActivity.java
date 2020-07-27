@@ -17,53 +17,52 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
-public class KivyDesignLanguageActivity extends AppCompatActivity {
-    private ListView kvDesignListView;
+public class ExampleActivity extends AppCompatActivity {
+    private ListView exampleListView;
     private AdView mAdView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kivy_design_language);
+        setContentView(R.layout.activity_example);
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
-        mAdView = findViewById(R.id.adView7);
+        mAdView = findViewById(R.id.adView8);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-        kvDesignListView = findViewById(R.id.kivyDesignListVIew);
+        exampleListView = findViewById(R.id.exampleListView);
         ActionBar actionBar =getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
-        String[] kvItems = {"Введение","Первое приложение с Kv Design Language","Класс Builder","Атрибут id"};
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,kvItems);
-        kvDesignListView.setAdapter(arrayAdapter);
-        setTitle("Kv Design Language");
-        kvDesignListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        String[] layouts = {"Перевод килограммов в граммы","Таймер","Простой калькулятор","Простой аудиоплеер"};
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,layouts);
+        exampleListView.setAdapter(arrayAdapter);
+        setTitle("Примеры приложений");
+        exampleListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = null;
                 switch (i) {
                     case 0:
-                        intent = new Intent (KivyDesignLanguageActivity.this, DetailKivyDesignLanguageAcitvity.class);
-                        intent.putExtra("kv",i);
+                        intent = new Intent (ExampleActivity.this, DetailExample.class);
+                        intent.putExtra("example",i);
                         startActivity(intent);
                         break;
                     case 1:
-                        intent = new Intent (KivyDesignLanguageActivity.this, DetailKivyDesignLanguageAcitvity.class);
-                        intent.putExtra("kv",i);
+                        intent = new Intent (ExampleActivity.this, DetailExample.class);
+                        intent.putExtra("example",i);
                         startActivity(intent);
                         break;
                     case 2:
-                        intent = new Intent (KivyDesignLanguageActivity.this, DetailKivyDesignLanguageAcitvity.class);
-                        intent.putExtra("kv",i);
+                        intent = new Intent (ExampleActivity.this, DetailExample.class);
+                        intent.putExtra("example",i);
                         startActivity(intent);
                         break;
                     case 3:
-                        intent = new Intent (KivyDesignLanguageActivity.this, DetailKivyDesignLanguageAcitvity.class);
-                        intent.putExtra("kv",i);
+                        intent = new Intent (ExampleActivity.this, DetailExample.class);
+                        intent.putExtra("example",i);
                         startActivity(intent);
                         break;
 
@@ -76,7 +75,7 @@ public class KivyDesignLanguageActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                Intent intent = new Intent(KivyDesignLanguageActivity.this,MainActivity.class);
+                Intent intent = new Intent(ExampleActivity.this,MainActivity.class);
                 startActivity(intent);
                 return true;
             default:
