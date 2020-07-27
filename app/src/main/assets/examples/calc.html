@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Простой калькулятор</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="w-50" src="file:///android_asset/img/examples/calc.gif" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Создадим простой калькулятор. Какие виджеты нам для этого нужно: <br> 1.Вертикальный макет <b>BoxLayout</b>(у нас будет класс <b>Calculator</b> который будет наследоваться от класса <b>BoxLayout</b>) <br> 2.Виджет <b>Label</b> где будут отображаться числа <br> 3.Нам нужен будет макет в виде таблицы <b>GridLayout</b> для кнопок(мы определим его в разметке) <br> 4.Кнопки от 0 до 9 <br> 5.Кнопки с операциями <b>'+'</b>, <b>'-'</b>, <b>'*'</b>, <b>'/'</b>, <b>'='</b> <br> 6.Кнопка <b>'C'</b> для очистки текста у виджета <b>Label</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Создадим два файла <b>calcapp.py</b> для кода и <b>calc.kv</b> для разметки. Начнем с кода <b>calcapp.py</b>. Для начала зададим размер окна <b>400х500</b> с помощью <b>Config.set</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/calc.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее создадим класс <b>Calculator</b> который будет наследоваться от <b>BoxLayout</b> и который так же будет у нас в разметке. В нем объявим переменную <b>label</b> которая так же будет у нас в разметке. Так же объявим переменную <b>first_number</b> и будем присваивать ей первое число, но в начале присвоем ей <b>None</b>. Так же создадим переменную <b>operand</b> куда будет присваивать операции <b>'+'</b>, <b>'-'</b>, <b>'*'</b>, <b>'/'</b>, <b>'='</b>, но в начале она будет равна <b>None</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/calc2.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Начнем писать методы в этом классе. Первый метод <b>write_number</b> который будет присвоен событию <b>on_press</b> кнопкам с числами в разметке. При нажатию на кнопку с числом в нашем виджете <b>Label</b> будет отображаться это число. Обратите внимание что в этом методе вторым параметром после <b>self</b> идет <b>instance</b>. Параметр <b>instance</b> это объект который вызывает этот метод. В нашем случае это нажатая кнопка. Через <b>instance</b> мы будем обращаться к атрибуту <b>text</b> у кнопки. Сначала в этом методе мы пишим условие что <b>operand</b> не равен знаку <b>'='</b>. Если это так то переменной <b>label</b>(где отображаются числа) мы присваиваем старое значение переменной <b>label</b> плюс <b>instance.text</b>(число с кнопки). Далее в этом же условии пишем условие что если переменная <b>first_number</b> равна <b>None</b>, то присвоим ей же значение <b>0</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/calc3.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Следующие методы операций сложения(метод <b>add</b>), вычитания(метод <b>subtract</b>), умножения(метод <b>multiply</b>) и деления(метод <b>division</b>) будут похожи и присваиваться событию <b>on_press</b> к соответствующим кнопкам этих операций в разметке. Единственное что в этих методах переменная <b>operand</b> будет принимать знак взависимости от операции. Рассмотрим метод сложения <b>add</b>: <br> 1.Пишем условие если <b>first_number</b> равен <b>None</b> то выходим из метода с помощью ключевого слова <b>return</b> <br> 2.Пишем условие что если переменная <b>operand</b> равна знаку <b>'='</b> то присваиваем этой переменной <b>operand</b> значение <b>None</b> <br> 3.Пишем условие что если <b>operand</b> не пустой и равен какому то знаку операции то выходим из метода с помощью ключевого слова <b>return</b> <br> 4. Присваеваем переменной <b>first_number</b> значение с виджета <b>label</b> приводя его к типу <b>int</b> <br> 5. Очищаем <b>label</b> присвоив ему пустой символ <b>''</b> <br>6.Присваиваем переменной <b>operand</b> знак <b>'+'</b> </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>В остальных методах операций такой же алгоритм за исключением только того что переменная <b>operand</b> бует соответствовать знаку операции. Например если метод <b>substract</b>(вычитание) то переменная <b>operand</b> будет равна знаку <b>'-'</b>,если метод <b>multiply</b>(умножение) то переменная operand будет равна знаку <b>'*'</b> и если метод <b>division</b>(деление) то переменная <b>operand</b> будет равна знаку <b>'/'</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/calc4.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/calc5.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/calc6.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/calc7.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее идет метод <b>equal</b>(равно) который в разметке мы присвоим событию <b>on_press</b> кнопки с текстом <b>'='</b> и этот метод будет выводить в <b>Label</b> результат операции. Итак пишем в этом методе: <br> 1.Условие если переменная <b>operand</b> равна знаку <b>'='</b> или <b>first_number</b> равен <b>None</b> то мы выходим из метода с помошью ключевого слова <b>return</b> <br> 2.Пишем условие для сложения чисел. Если переменная <b>first_number</b> не равна <b>None</b> и переменная <b>operand</b> не равна <b>None</b> и переменная <b>operand</b> равна знаку <b>'+'</b> то в переменную <b>label</b>(напомню что это переменная виджета где отображаются числа) мы присваиваем сложение переменной <b>first_number</b> и значение с переменной <b>label</b>(приведя его к числу с помощью <b>int</b>) и все это приводим к строчному типу с помошью <b>str</b> <br> 3.Иначе если переменная <b>first_number</b> не равна <b>None</b> и переменная <b>operand</b> не равна <b>None</b> и переменная <b>operand</b> равна знаку <b>'-'</b> то в переменную <b>label</b>(напомню что это переменная виджета где отображаются числа) мы присваиваем вычитание переменной <b>first_number</b> и значение с переменной <b>label</b>(приведя его к числу с помощью <b>int</b>) и все это приводим к строчному типу с помошью <b>str</b> <br> 4.Иначе если переменная <b>first_number</b> не равна <b>None</b> и переменная <b>operand</b> не равна <b>None</b> и переменная <b>operand</b> равна знаку <b>'*'</b> то в переменную <b>label</b>(напомню что это переменная виджета где отображаются числа) мы присваиваем умножение переменной <b>first_number</b> и значение с переменной <b>label</b>(приведя его к числу с помощью <b>int</b>) и все это приводим к строчному типу с помошью <b>str</b> <br> 5.Иначе если переменная <b>first_number</b> не равна <b>None</b> и переменная <b>operand</b> не равна <b>None</b> и переменная <b>operand</b> равна знаку <b>'/'</b> и <b>label.text</b> не равен <b>0</b>(потому что на ноль делить нельзя) то в переменную <b>label</b>(напомню что это переменная виджета где отображаются числа) мы присваиваем деление переменной <b>first_number</b> и значение с переменной <b>label</b>(приведя его к числу с помощью <b>int</b>) и все это приводим к строчному типу с помошью <b>str</b>(деление на целые числа в <b>Python</b> это //) <br> 6.Присваиваем переменной <b>operand</b> знак <b>'='</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/calc8.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Следующий метод <b>clear</b> для очистки виджета <b>Label</b>, переменной <b>first_number</b> и переменной <b>operand</b>. Этот метод мы присвоим событию <b>on_press</b> на кнопку с текстом <b>'C'</b> в разметке. Итак в этом методе все просто. Переменной <b>first_number</b> мы присваиваем значение <b>None</b>. Далее переменной <b>operand</b> присваиваем значение <b>None</b>. Переменной <b>label</b> присваиваем пустой текст <b>''</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/calc9.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее создаем класс <b>CalcApp</b> который наследуется от класса <b>App</b> и в методе <b>build</b> создаем экземпляр класса <b>Calculator</b> под названием <b>calculator</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/calc10.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>C кодом все.Теперь рассмотрим разметку <b>calc.kv</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/calc11.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/calc12.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Сначало пишем в треугольных скобках название класса <b>Calculator</b> как писали в коде. Далее пишем переменную <b>label</b> как в коде и присваиваем <b>id:label</b>. Так как наш класс <b>Calculator</b> наследуется от <b>BoxLayout</b> то у него есть так же атрибут <b>orientation</b> значение которого мы ставим <b>'vertical'</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div><br>Далее пишем виджет <b>Label</b>(который отображает числа). Пишем ему <b>id:label</b>. Устанавливаем размер шрифта <b>font_size</b> значение <b>'50sp'</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div><br>Далее пишем макет <b>GridLayout</b> где будут располагаться кнопки в табличном виде.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div><br>Далее пишем кнопки устанавливаем у них атрибут <b>text</b>. У кнопок с числами событию <b>on_press</b>(нажатие на кнопку) присваиваем метод <b>write_number(self)</b> перед этим написав <b>root</b>.Параметр <b>self</b> это сама же кнопка на которую мы нажали. Это параметр нужен для того чтобы мы пользовались параметром <b>instance</b> в методе.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div><br>Далее кнопкам с операциями <b>'+'</b>, <b>'-'</b>, <b>'*'</b>, <b>'/'</b>, <b>'='</b> мы присваем событию <b>on_press</b> соответствующий метод с класса. Для кнопки с <b>'+'</b> метод <b>root.add()</b>, для кнопки с <b>'-'</b> метод <b>root.subtract()</b>, для кнопки с <b>'*'</b> метод <b>root.multiply()</b>, для кнопки с <b>'/'</b> метод <b>root.division()</b> и для кнопки с <b>'='</b> метод <b>root.equal()</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div><br>Для кнопки с текстом <b>'C'</b> событию <b>on_press</b> присваиваем метод <b>root.clear()</b></div>
+            </div>
+        </div>
+       
+    </div>
+</body>
+</html>

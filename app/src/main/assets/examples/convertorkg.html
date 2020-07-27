@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Перевод килограммов в граммы</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/kg.gif" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Перед созданием данного приложения давайте сначало подумаем какие виджеты нам понадобятся. А понадобятся нам: <br> 1. Горизонтальный макет <b>BoxLayout</b>(у нас будет класс <b>KgWeight</b> наследоваться от класса <b>BoxLayout</b>) <br> 2.Виджет <b>Text Input</b> для ввода значения в кг <br> 3. Виджет <b>Label</b> для отображения '=' <br> 4. Виджет <b>Label</b> для отображения грамм </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Итак создадим два файла <b>kgapp.py</b> для кода и <b>kg.kv</b> для разметки. В коде для начала зададим размер окна <b>400х60</b> с помощью <b>Config.set</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/kg2.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее напишем класс <b>KgWeight</b> который будет наследоваться от <b>BoxLayout</b>. Его мы так же объявим в разметке. В нем создадим две переменные <b>kg_input</b> и <b>gramm_result</b> которым присвоем <b>ObjectProperty(None)</b> и так же потом объявим их в разметке. Даллее напишем метод <b>convert_to_gramm</b> в котором тексту <b>Label</b>(переменная <b>gramm_result</b> ) вы присваиваемм значение в граммах</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/kg3.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее создадим класс <b>KgApp</b> который неаследуется от класса <b>App</b> и в его методе <b>build</b> создадим экземпляр класса <b>KgWeight</b> который будет называться <b>kg_weight</b>.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/kg4.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Теперь рассмотрим разметку <b>kg.kv</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/kg5.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Сначало в треугольных скобках мы пишем название класса <b>KgWeight</b> который создали в коде. Далее мы пишем название переменных которые так же объявили в классе, которым мы присвоили <b>ObjectProperty</b>. В разметке мы присваиваем им <b>id</b> виджетов. Так как этот класс наследуется от <b>BoxLayout</b> присваиваем атрибуту <b>orientation</b> значение <b>'horizontal'</b>. Далее в виджете <b>TextInput</b> пишем ему <b>id:kg_input</b>. Атрибут <b>multiline</b> ставим в <b>False</b> что бы у нас при нажатии на клавишу <b>Enter</b> вместо переноса на новую строку, заканчивался ввод. Далее атрибуту <b>input_filter</b> пишем значение <b>'float'</b> для того чтобы мы могли вводить значение только в формате <b>float</b>. Задаем размер шрифта с пмошью атрибута <b>font_size</b> значение <b>40sp</b>. Далее событию <b>on_text_validate</b>(срабатывает при нажатии <b>Enter</b>, но перед этим атрибут <b>multiline</b> нужно поставить в значение <b>False</b> ) присваиваем наш метод с класса <b>KgWieght</b> перед этим написав <b>root</b> и получается <b>root.convert_to_gramm()</b> </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div><br>Следующий виджет <b>Label</b> который отображает '='. Ставим ему <b>size_hint</b> в значение <b>(0.2,0.6)</b>. Размер шрифта <b>font_size</b> ставим <b>50sp</b>. Позицию <b>pos_hint</b> по <b>y</b> ставим <b>0.2</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div><br>Следующий виджет <b>Label</b> который будет отображать нам при нажатии на клавишу <b>Enter</b> количество грамм. Присваиваем ему <b>id:gramm_result</b> и размер шрифта <b>font_size</b> ставим <b>40sp</b></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

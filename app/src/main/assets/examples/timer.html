@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Таймер</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="w-80" src="file:///android_asset/img/examples/timer.gif" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Создадим таймер. Задавать время будем в виджете <b>Text Input</b> и при нажатии на клавишу <b>Enter</b> это время присвоится <b>Label</b> где будет отображаться время. Далее при нажатии на кнопку <b>Start</b> таймер будет запускаться, соответственно при нажатии кнопки <b>Stop</b> останавливаться. Вот такие виджеты нам понадобятся: <br> 1.Вертикальный макет <b>BoxLayout</b>(у нас будет класс <b>TimerEx</b> который будет наследоваться от класса <b>BoxLayout</b>) <br> 2. Виджет <b>Text Input</b> в котором мы будет писать время в секундах и при нажатии на клавишу <b>Enter</b> это время присвоится виджету <b>Label</b> где будет показываться время <br> 3. Виджет <b>Label</b> где будет отображаться время <br> 4. Кнопка <b>Start</b> которая будет запускать метод <b>start_timer()</b> <br> 5. Кнопка <b>Stop</b> которая будет запускать метод <b>stop_timer()</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Так же нам понадобится класс <b>Timer</b> из модуля <b>threading</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Создадим два файла <b>timer.py</b> для кода и <b>timer.kv</b> для разметки. Начнем с кода. Зададим размер окна <b>200х300</b> с помощью <b>Config.set</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="w-100" src="file:///android_asset/img/examples/timer.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее создадим класс <b>TimerEx</b> который будет наследоваться от класса <b>BoxLayout</b>. Объявим переменные всех виджетов и присвоим им <b>ObjectProperty(None)</b> которые так же будут в разметке. Так же объявим счетчик времени <b>time_count</b> и присвоим ему начальное значение 0. Далее объявим переменную <b>t</b> которая будет экземпляром класса <b>Timer</b>, но поначалу будет <b>None</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="w-100" src="file:///android_asset/img/examples/timer2.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее в этом классе будет писать методы. Напишем метод <b>set_time</b>. В нем присвоим переменной <b>time_count</b> значение с <b>text_input</b> приведенное к формату <b>int</b>. Далее <b>time_text</b>(<b>Label</b> где отображается время) мы присвоим значение с <b>time_count</b>. Так же в этом методе мы будет включать кнопку <b>start_btn</b> так как в разметке она будет отключена. Это делается с помощью атрибута <b>disabled</b>. Если это атрибут равен <b>True</b> то кнопка отключена, а если <b>False</b> то включена. Этот метод <b>set_time</b> в разметке мы присвоим событию <b>on_text_validate</b> у <b>TextInput</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="w-100" src="file:///android_asset/img/examples/timer3.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее напишем метод <b>start_timer</b> который будет выполняться при нажатии на кнопку <b>Start</b>(в разметке присвоим это метод событию <b>on_press</b> у кнопки). В нем мы создаем экзмепляр класса <b>Timer</b> для переменной <b>t</b> в котором первый параметр это время через которое запустится метод, а вторым сам метод. Метод <b>countdown</b> мы напишем позже. Далее будем заупускать таймер с помощью метода <b>start()</b> у переменной <b>t</b>. Выключаем кнопку <b>start_btn</b> с помощью атрибута <b>disabled</b>. Включаем кнопку <b>stop_btn</b> и так же выключаем <b>text_input</b> для того чтобы нельзя было изменять время при запуске таймера.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="w-100" src="file:///android_asset/img/examples/timer4.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Теперь же напишем сам метод <b>countdown</b>. В начале будем проверять что если <b>time_count</b> равен нулю то: <br> 1.Отключаем кнопку <b>stop_btn</b> с помощью атрибута disabled <br> 2. Устанавливаем перменной time_count значение с text_input <br> 3. В переменную time_text(Label где отображается время) присваиваем значение с time_count <br>4.Включаем кнопку <b>start_btn</b> с помощью атрибута <b>disabled</b> <br>5. Включаем <b>text_input</b> с помощью атрибута <b>disabled</b> <br> 6. Присваиваем переменной <b>t</b> значение <b>None</b> чтобы таймер по окончанию снова не запустился</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее пишем код в условии если <b>time_count</b> не равен нулю: <br> 1.Уменьшаем <b>time_count</b> на единицу <br> 2. Присваиваем <b>time_text</b>(<b>Label</b> где отображается время) значение <b>time_count</b> приведенную к типу строки <br> 3.Создаем экземпляр класса <b>Timer</b> для переменной <b>t</b> где пишем вторым параметром этот же метод <b>countdown</b> <br> 4.Запускаем <b>Timer</b> с помощью метода <b>start()</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="w-100" src="file:///android_asset/img/examples/timer5.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Следующий метод <b>stop_timer</b> который будет выполняться при нажатии на кнопку <b>Stop</b>(в разметке присвоим этот метод событию <b>on_press</b>).В нем мы напишем: <br> 1. Включаем <b>text_input</b> с помощью атрибута <b>disabled</b> <br> 2. Останавливаем таймер вызвав метод <b>cancel()</b> у переменной <b>t</b> <br> 3. Включаем кнопку <b>start_btn</b> с помощью атрибута <b>disabled</b> <br> 4.Выключаем кнопку <b>Stop</b> с помощью атрибута <b>disabled</b> <br> 5. Присваиваем переменной <b>time_count</b> значение с <b>text_input</b> приведенное к формату <b>int</b> <br>6. Переменной <b>time_text</b> присваиваем значение с переменной <b>time_count</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="w-100" src="file:///android_asset/img/examples/timer6.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее пишем класс <b>TimerApp</b> который наследуется от класса <b>App</b>.У него в методе <b>build</b> создадим экзмепляр класса <b>TimerEx</b> под названием <b>timer</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="w-100" src="file:///android_asset/img/examples/timer7.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Теперь посмотрим на разметку <b>timer.kv</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="w-100" src="file:///android_asset/img/examples/timer8.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>В треугольных скобках пишем название класса <b>TimerEx</b> как в коде. Далее пишем название переменных как в коде и присваиваем им <b>id</b> виджетов. Так как наш класс является наследником класса <b>BoxLayout</b> то у него есть атрибут <b>orientation</b>. Присваиваем этому атрибуту значение <b>'vertical'</b> так как все виджеты будут расположены вертикально</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div><br>Далее пишем атрибуты для виджета <b>TextInput</b>. Сначало присваиваем <b>id:text_input</b>. Далее атрибуту <b>input_filter</b> ставим значение <b>'int'</b> для того чтобы он принимал только целые числа в качестве значения. Атрибут <b>multiline</b>(многострочность) присваиваем значение <b>False</b> для того чтобы при нажатие клавиши <b>Enter</b> небыло перехода на новую строку, а заканчивался ввод. Значение <b>size_hint</b> пишем <b>(1,0.3)</b> для того чтобы по длине этот виджет занимал меньше места. Событию <b>on_text_validate</b>(событие вызывается после ввода при нажатие клавиши <b>Enter</b>, но перед этим атрибуту <b>multiline</b> нужно присвоить значение <b>False</b>) присваиваем вызов метода <b>set_time()</b> перед этим написав <b>root</b>.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div><br>Далее рассмотрим <b>Label</b> где выводится текст с временем. Присваиваем <b>id:time_text</b>. Ставим размер шрифта <b>font_size</b> значение <b>'50sp'</b>. Начальный текст у <b>Label</b> пишем <b>'0'</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div><br>Дальше идет кнопка <b>Start</b>. Присваиваем <b>id:start_btn</b>. Далее присваиваем текст на кнопку <b>'Start'</b>. Выключаем кнопку с помощью атрибута <b>disabled</b> поставив значение <b>True</b>. Событию <b>on_press</b>(нажатие на кнопку) мы присваиваем метод <b>start_timer()</b> перед этим написав <b>root</b>.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div><br>Дальше идет кнопка <b>Stop</b>. Присваиваем <b>id:stop_btn</b>. Далее присваиваем текст на кнопку <b>'Stop'</b>. Выключаем кнопку с помощью атрибута <b>disabled</b> поставив значение <b>True</b>. Событию <b>on_press</b>(нажатие на кнопку) мы присваиваем метод <b>stop_timer()</b> перед этим написав <b>root</b>.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

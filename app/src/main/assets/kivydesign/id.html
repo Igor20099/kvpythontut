@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Атрибут id</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img  class="w-100"src="file:///android_asset/img/kivydesign/id.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Для того чтобы использовать виджет из разметки <b>Kv Design language</b>, этому виджету можно присвоить <b>id</b>. Для этого напишите атрибут <b>id:название</b> у виджета. Далее создайте переменную и присвойте ему название <b>id</b> виджета.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img  class="w-100"src="file:///android_asset/img/kivydesign/id2.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Рассмотрим на примере. Создадим приложение где у нас будет макет <b>BoxLayout</b> с виджетами <b>Text Input</b> и <b>Label</b>. Мы будем вводить текст в <b>Text Input</b> и при нажатие клавиши <b>Enter</b> на клавиатуре написанный нами текст присвоится виджету <b>Label</b>. Создадим файл <b>myapp.py</b> и <b>my.kv</b> где будем писать разметку. Сама разметка:</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img  class="w-100"src="file:///android_asset/img/kivydesign/id.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Сам код:</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img  class="w-100"src="file:///android_asset/img/kivydesign/example.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Разберем этот код по порядку. В этом коде мы создаем класс <b>TestId</b> который наследуется от <b>BoxLayout</b> и который так же называется у нас в разметке в треугольных скобках. Далее нашим переменным <b>text_input</b> и <b>label</b>(такие же навзания переменных должны быть в разметке) присваиваем <b>ObjectProperty(None)</b> который находится в модуле <b>kivy.properties</b>(в этом модуле находятся классы разных свойств в данном примере мы используем класс свойство объекта(ObjectProperty)). Далее создаем метод <b>enter_text</b> и пишем в нем код который присваивает текст из виджета <b>Text Input</b> виджету <b>Label</b> используя созданные нами переменные. В самой разметке у <b>TextInput</b> событию <b>on_text_validate</b> мы присваиваем метод <b>enter_text</b> перед этим написав <b>root</b>, то есть обращаясь как бы к классу <b>TestId</b> и получается <b>root.enter_text()</b>. Так же поставьте атрибут <b>multiline</b> в значение <b>False</b> у <b>TextInput</b> чтобы при нажатии клавиши <b>Enter</b> вместо перехода на новую строку заканчивался ввод текста</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img  class="w-100"src="file:///android_asset/img/kivydesign/id3.gif" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

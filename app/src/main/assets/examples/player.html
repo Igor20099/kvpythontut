@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="file:///android_asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="file:///android_asset/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h2 text-center">Простой аудиоплеер</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player.gif" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Создадим простой аудиоплеер. Нам понадобятся дополнительно две библиотеки. Первая эта <b>easygui</b> для отображения диалогового окна выбора файла. Чтобы установить введите в терминале <b>pip install easygui</b>. Вторая библиотека <b>mutagen</b> для того чтобы вычислить длительность трека. Для установки введите в терминале <b>pip install mutagen</b>.Так же нам понадобится класс <b>Timer</b> из пакета <b>threading</b> для обновления позиции ползунка у виджета <b>Slider</b> и для обновления времени в <b>Label</b>. Для аудио нам понадобится класс <b>SoundLoader</b> из модуля <b>kivy.core.audio</b>.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Вот какие виджеты нам понадобятся: <br> 1. Виджет кнопки для загрузки аудиофайла. Будем загружать в формате <b>mp3</b> <br> 2.Виджет <b>Label</b> где будем выводить путь к нашему файлу. <br> 3. Виджет <b>Slider</b> для прокрутки трека. Так же при обновление позиции трека ползунок у слайдера будем двигаться. <br> 4. Три виджета <b>Label</b>. Первый <b>Label</b> будет обновляться время когда будет обнолвяться позиция трека. Второй <b>Label</b> просто косая черта. Третий <b>Label</b> для вывода длитеьности всего трека. <br>5.Три кнопки <b>Play</b>, <b>Pause</b>, <b>Stop</b>. Кнопка <b>Play</b> для проигрывания, кнопка <b>Pause</b> для паузы трека, кнопка <b>Stop</b> для остановки трека</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Создадим два файла <b>player.py</b> для кода и <b>player.kv</b> для разметки. Импортируем все нужные нам классы и модули. Как я и писал нам нужна библиотека <b>easygui</b> и <b>mutagen</b>. Импортируем класс <b>MP3</b> из <b>mutagen.mp3</b>. Так же мы будем задавать размер окна на этот раз с помощью класса <b>Window</b> из модуля <b>kivy.core.window</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Зададим размер окна <b>400x400</b> c помошью атрибута <b>size</b> у класса <b>Window</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player2.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Создадим класс <b>PlayerExample</b> который будет наследоваться от <b>BoxLayout</b>. Создаем переменные как в разметке <b>slider</b>, <b>filename</b>, <b>play</b>, <b>pause</b>, <b>stop</b>, <b>time</b>(виджет <b>Label</b> где будет обновляться текст времени), <b>all_time</b>(виджет <b>Label</b> где будет отображаться общая длительность трека). Так же создадим переменную <b>music_file</b> в неё мы будем присваивать путь к файлу изначально она будет <b>None</b>, переменную <b>sound</b> с помощью которой будем проигрывать и останавливать трек изначально она будет <b>None</b>, перменную <b>timer</b> класса <b>Timer</b> изначально она будет <b>None</b> и переменную <b>seconds</b> которой будет присваивать каждую секунду единицу при проигрывание трека изначально будет равна <b>0</b>.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player3.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее напишем метод <b>load_music</b> в этом классе.В разметке присвоем этот метод событию <b>on_press</b> кнопки загузки(она будет называться <b>Load</b>). При нажатии на кнопку будет появляться диалоговое окно с выбором файла и после это загрузим его в переменную <b>sound</b>. Итак: <br> 
+                    1.Проверяем условие если <b>timer</b> не равен None то останавливаем <b>timer</b> с помощью <b>timer.cancel()</b> <br> 
+                    2.Присваиваем переменной <b>music_file</b> путь к файлу. Мы выберем файл в диалоговом окне и присвоем путь к файлу с помощью <b>easygui.fileopenbox(filetypes=["*.mp3"])</b> <br>
+                    3. Далее проверяем условие если переменная <b>sound</b> не равна <b>None</b> то вызываем метод <b>stop_music</b> который создадим позже. Присваиваем переменной <b>seconds</b> значение 0.Виджету <b>Label</b> которыей будет обновлять позицию трека присвоем "00:00" <br> 
+                    4. Проверяем условие если переменная <b>music_file</b> равна <b>None</b> то переменной <b>filename</b> присваиваем текст "No loaded song", переменной <b>all_time</b> присвоем "00:00". В этом же условие напишем если <b>timer</b> не равен <b>None</b> то останавливаем <b>timer</b> с помощью <b>timer.cancel()</b>. И в этом же условии(if self.music_file == None) перменной кнопки <b>play</b> атрибуту <b>disabled</b> присваиваем <b>True</b>(отключаем кнопку).В этом же условии пишем оператор <b>return</b><br>5.Переменной <b>sound</b> присваиваем загруженный трек с помощью <b>SoundLoader.load(self.music_file)</b> <br>6.Создаем переменную <b>audio</b> и присвоем ей информацию о файл с помощью класса <b>MP3</b> из модуля <b>mutagen.mp3</b> в качестве параметра передадим путь к файлу(переменная music_file) <br>7. Переведем размер трека в минуты и секунды создадим переменные m и s и присвоем метод <b>divmod</b> где в качестве первого параметра будет <b>audio.info.length + 1</b>(единицу прибавляем для точного времени), а второго значение <b>60</b> <br> 8.Приводим отображение времени к формату "минуты:секунды". Содадим переменную <b>t</b> и присвоем ей <b>"%02d:%02d" % (m,s)</b> <br>9.Присваиваем переменную <b>t</b> переменной <b>all_time</b><br>10.Присвоем виджету <b>Slider</b> максимальное значение. Максимальное значение будет длительность загруженного трека. Пишем self.slider.max = int(audio.info.length) <br> 11.Значение самого ползунка ставим 0. Пишем self.slider.value = 0 <br> 12. Поставим позицию трека в 0 для этого пишем self.sound.seek(0). Именно с помощью метода seek можно установить позицию трека. <br> 13.Останавливаем проигрывания трека пишем self.sound.stop() <br> 14. Включаем кнопку <b>play</b> c помошью атрибута <b>disabled</b> ставим <b>False</b>15.Переменной <b>timer</b> присваиваем класс Timer в качестве первого параметра будет время через которое сработает timer. У нас будет одна секунда. Вторым параметром пишем метод <b>position</b> которые будет обновлять позицию <b>slider</b> и обновлять текст виджет <b>Label</b> где отображаться в секундах позиция трека. Напишем метод <b>position</b> позже <br> 15.Переменной <b>filename</b> присвоем текст пути к файлу. Для этого пишем self.filename.text = self.sound.source</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player4.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее пишем метод <b>play_music</b> который присвоем событию <b>on_press</b> кнопки <b>Play</b>. Итак пишем: <br> 1.Отключаем кнопку <b>play</b> с помощью атрибута <b>disabled</b> ставим True <br> 2.Включаем кнопку <b>pause</b> с помощью атрибута <b>disabled</b> ставим False <br>3.Включаем кнопку <b>stop</b> с помощью атрибута <b>disabled</b> ставим False <br>4.Запускаем проигрывания трека. Пишем self.sound.play() <br> 5.Запускаем <b>timer</b>. Пишем self.timer.start()</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player5.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее пишем метод <b>pause_music</b> который присвоем событию <b>on_press</b> кнопки <b>Pause</b>. Итак пишем: <br> 1.Останавливаем <b>timer</b>. Пишем <b>self.timer.cancel()</b> <br>2.Создаем переменную <b>pos</b> которой присвоем текущую позицию трека. Пишем <b>pos = self.sound.get_pos()</b> <br>3.Останавливаем воспроизведение трека. Пишем self.sound.stop() <br> 4.Присваем слайдеру текущее значение позиции трека. Пишем <b>self.slider.value = pos</b> <br> 5. Включаем кнопку <b>play</b> с помошью атрибута <b>disabled</b> ставим False <br>6.Отключаем кнопку <b>pause</b> с помошью атрибута <b>disabled</b> ставим True <br> 7.Переменной <b>timer</b> присваиваем класс <b>Timer</b> в качестве первого параметра будет время через которое сработает timer. У нас будет одна секунда. Вторым параметром пишем метод <b>position</b> которые будет обновлять позицию <b>slider</b> и обновлять текст виджет <b>Label</b> где отображаться в секундах позиция трека. Напишем метод <b>position</b> позже <br></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player6.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее пишем метод <b>stop_music</b> который присвоем событию <b>on_press</b> кнопки <b>Stop</b>. Итак пишем: <br> 1.Останавливаем воспроизведение трека. Пишем self.sound.stop() <br>2.Останавливаем <b>timer</b>. Пишем <b>self.timer.cancel()</b> <br>3.Включаем кнопку <b>play</b> с помощью атрибута <b>disabled</b> ставим <b>False</b> <br>4.Переменной <b>timer</b> присваиваем класс Timer в качестве первого параметра будет время через которое сработает timer. У нас будет одна секунда. Вторым параметром пишем метод <b>position</b> которые будет обновлять позицию <b>slider</b> и обновлять текст виджет <b>Label</b> где отображаться в секундах позиция трека. Напишем метод <b>position</b> позже <br>5.Присваиваем значение ползунка равное 0. Пишем self.slider.value = 0 <br>6.Ставим позицию трека равное 0. Пишем self.sound.seek(0) <br>7.Отключаем кнопку <b>stop</b> с помощью атрибута <b>disabled</b> ставим True <br>8.Отключаем кнопку <b>pause</b> с помощью атрибута <b>disabled</b> ставим True</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player7.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее пишем метод <b>position</b> который будет вызывать <b>timer</b> <br> 1.Переменной <b>timer</b> присваиваем класс Timer в качестве первого параметра будет время через которое сработает timer. У нас будет одна секунда. Вторым параметром пишем этот же метод <b>position</b> которые будет обновлять позицию <b>slider</b> и обновлять текст виджет <b>Label</b> где отображаться в секундах позиция трека. <br> 2.Присваиваем значению ползунка слайдера текущию позицию трека. Пишем self.slider.value = self.sound.get_pos() <br>3.Запускаем <b>timer</b>. Пишем self.timer.start() <br>4. Увеличиваем значение переменной <b>seconds</b> на 1 <br>5.Вызываем метод <b>time_format</b> который в качестве параметра пишем переменную <b>seconds</b>. Метод <b>timer_format</b> мы напишем позже. Он приводит значение в секундах к формату "минуты:секунды" <br>6.Далее пишем условие если значение ползунка слайера равен 0 то вызываем метод self.stop_music(), присваиваем значение ползунку 0 self.slider.value = 0, присваиваем переменной <b>seconds</b> значение 0, вызываем метод <b>time_format</b> который в качестве параметра пишем переменную <b>seconds</b>. Метод <b>timer_format</b> мы напишем позже. Он приводит значение в секундах к формату "минуты:секунды"</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player8.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Далее пишем метод <b>music_position</b> который присвоем событию <b>on_touch_move</b>(срабатывает при перемещении ползунка слайдера) и событию <b>on_touch_up</b>(при отпускание мышки с ползунка слайдера) виджета <b>Slider</b>. Параметр <b>instance</b> это объект который вызывает текущий метод.В данном случае это <b>Slider</b>. Пишем если переменная <b>sound</b> не равна None то устанавливаем позицию трека через значение полузунка у слайдера <b>self.sound.seek(instance.value)</b>, присваиваем переменной <b>seconds</b> значение ползунка слайдера <b>self.seconds = instance.value</b>, вызываем метод <b>time_format</b> который в качестве параметра пишем переменную <b>seconds</b>. Метод <b>timer_format</b> мы напишем позже. Он приводит значение в секундах к формату "минуты:секунды"</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player9.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>Теперь пишем метод time_format: <br>1.Создаем переменные m и s и присвоим им результам метода <b>divmod</b> где в качестве первого параметра будет наше значение в секундах,а вторым значением пишем значение 60 <br>2.Создаем переменую t и присвоем ей %02d:%02d" % (m, s). <br>3.Присвоем переменной time(виджет <b>Label</b> выводит текущую позицию нашего трека в секундах и минутах) переменную t</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player10.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>C класс <b>PlayerExample</b> все.Теперь пишем класс <b>PlayerApp</b> который будет наследоваться от класса <b>App</b>. Итак: <br>
+                1.Создаем переменную <b>player</b> и присваиваем изначально <b>None</b> <br>2.Пишем метод <b>build</b> в котором с помощью метода <b>bind</b> класса <b>Window</b> присваиваем событию <b>on_close</b>(закрытие приложения) метод <b>on_request_close</b>(этот метод нам понадобится для того чтобы останавливать воспроизведение трека и останавливать <b>timer</b> при закрытие приложения). Далее присваем переменной <b>player</b> наш созданный класс <b>PlayerExample</b> и с помощью ключевого cлова <b>return</b> возваращаем <b>player</b> <br>
+            3.Пишем метод <b>on_request_close</b>. Тут обращаемся к экземпляру класса <b>PlayerExample</b> к <b>player</b> и к переменной <b>sound</b> и останавливаем воспроизведение трека c помощью метода <b>stop()</b> <b>self.player.sound.stop()</b>. Так же обращаемся к экземпляру класса <b>PlayerExample</b> к <b>player</b> и к переменной <b>timer</b> и останавливаем таймер c помощью метода <b>cancel()</b> <b>self.player.timer.cancel()</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player11.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>С кодом все. Теперь посмотрим разметку <b>player.kv</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player12.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="w-100" src="file:///android_asset/img/examples/player13.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>1.Пишем такое же название класса как в коде в треугольных сокбках <b>PlayerExample</b> <br>
+                2.Присваиваем переменным которые такие же как в коде <b>id</b> виджетов и атрибуту <b>orientation</b> ставим значение <b>vertical</b> <br>
+            3.Пишем кнопку загрузки. Атрибуту <b>text</b> присваиваем текст <b>'Load'</b> и событию <b>on_press</b>(нажатие на кнопку) присваиваем наш метод загрузки файла из кода <b>root.load_music()</b> <br>
+        4.Далее прописываем виджет <b>Label</b> который будет отображать путь к файлу. Присваиваем <b>id:label</b> и начальный текст <b>No song loaded</b>. Размер шрифта 15sp <b>font_size:'15sp'</b> <br>
+        5.Прописываем <b>Slider</b>. Присваиваем <b>id:slider</b>.Далее событию когда мы передвигаем ползунок <b>on_touch_move</b> и событию отпускания нажатия на slider <b>on_touch_up</b> присваиваем метод написанный в коде <b>music_position</b> и в качестве параметра передаем слайдер(self) <b>root.music_position(self)</b>. Атрибуту <b>size_hint</b> присваиваем значение <b>(1,0.1)</b> <br>
+    6.Пишем макет <b>BoxLayout</b> с тремя виджетами <b>Label</b>. Первому <b>Label</b> присваиваем <b>id:time</b>, атрибуту <b>text</b> присваиваем текст <b>'00:00'</b> и размер шрифта 50sp <b>font_size:'50sp'</b>. Второй <b>Label</b> это просто косая черта. Так же ставим размер шрифта 50sp и <b>size_hint</b> присваиваем значение <b>(0.01,1)</b>. Третий виджет <b>Label</b> это общее время трека. Присваиваем <b>id:all_time</b>, атрибуту <b>text</b> присваиваем текст <b>'00:00'</b> и размер шрифта 50sp <br>
+7.Пишем макет <b>BoxLayout</b> c тремя кнопками. Первая кнопка <b>Play</b> которая будет запускать воспроизведение трека. Присваиваем <b>id:play</b>, атрибуту <b>text</b> присваиваем текст <b>'Play'</b>, отключаем с помощью атрибута <b>disabled</b> поставив значение <b>True</b> и событию <b>on_press</b> присваиваем метод из кода <b>root.play_music()</b>. Вторая кнопка <b>Pause</b> при нажатии на которую трек будет ставиться на паузу. Присваиваем <b>id:pause</b>, атрибуту <b>text</b> присваиваем текст <b>'Pause'</b>, отключаем с помощью атрибута <b>disabled</b> поставив значение <b>True</b> и событию <b>on_press</b> присваиваем метод из кода <b>root.pause_music()</b>. Третья кнопка <b>Stop</b> при нажатии на которую трек будет останавливаться и ползунок <b>Slider</b> будет переходит в начальную позицию слайдера. Присваиваем <b>id:stop</b>, атрибуту <b>text</b> присваиваем текст <b>'Stop'</b>, отключаем с помощью атрибута <b>disabled</b> поставив значение <b>True</b> и событию <b>on_press</b> присваиваем метод из кода <b>root.stop_music()</b></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
